@@ -34,12 +34,17 @@
 
     __Topics:__ Setting up Cassandra, creating users and databases.
 
+9. [Installation of CUDA and CUDANN](cuda.html)
+
+    __Topoics:__ Installing CUDA, CUDANN, and Machine Learning Libraries. 
+
 ## Users
 
 ### Basic Commands
 1. [Linux](linuxCommands.html)
 2. [Conda](condaCommands.html)
 3. [PostGres](postGresCommands.html)
+4. [JupyterLab](jupyterLabCommands.html)
 
 ### Advanced Commands
 1. [Linux](linuxAdvCommands.html)
