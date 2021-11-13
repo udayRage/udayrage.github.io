@@ -36,7 +36,7 @@
 
 9. [Installation of CUDA and CUDANN](cuda.html)
 
-    __Topoics:__ Installing CUDA, CUDANN, and Machine Learning Libraries. 
+    __Topics:__ Installing CUDA, CUDANN, and Machine Learning Libraries. 
 
 ## Users
 
@@ -45,6 +45,7 @@
 2. [Conda](condaCommands.html)
 3. [PostGres](postGresCommands.html)
 4. [JupyterLab](jupyterLabCommands.html)
+5. [Vi editor](viCommands.html)
 
 ### Advanced Commands
 1. [Linux](linuxAdvCommands.html)
