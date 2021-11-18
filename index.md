@@ -50,12 +50,10 @@
 ### Advanced Commands
 1. [Linux](linuxAdvCommands.html)
 2. [PostGres](postGresAdvCommands.html)
-3. [SSH setting up and Tunneling](sshAdvCommands.html)
-4. [SCP commands](scpAdvCommands.html)
+3. [Tunneling](sshAdvCommands.html)
 
 
 ### Pro Commands
 1. [Linux](linuxProCommands.html)
 2. [PostGres](postGresProCommands.html)
-3. [SCP](scpProCommands.html)
 
