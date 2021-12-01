@@ -93,13 +93,25 @@ Please note that hadoop does not maintain seperate user permissions for files an
 
        hdfs -dfs -ls /userHome
 
-5. Delete a file in hadoop
+5. Print a file located in hadoop
+
+       hdfs -dfs -cat fileName
+
+       Examples:
+   
+       hdfs -dfs -cat  /udayHome/text.txt 
+
+
+6. Delete a file in hadoop
 
        hdfs -dfs -rm [-skipTrash] fileName1 fileName2 ... 
 
        Examples:
 
        hdfs -dfs -rm /udayHome/text.txt /udayHome/copiedText.txt
+
+
+[Click here for more commands](https://www.geeksforgeeks.org/hdfs-commands/)
 
 
 
