@@ -48,10 +48,13 @@
 5. [Vi editor](viCommands.html)
 6. [Hadoop](hadoop.html)
 
+
 ### Advanced Commands
 1. [Linux](linuxAdvCommands.html)
 2. [PostGres](postGresAdvCommands.html)
 3. [Tunneling](sshAdvCommands.html)
+4. [Reading HDFS file in Python](pythonHDFS.html)
+5. [Spark](pythonSpark.html)
 
 
 ### Pro Commands
