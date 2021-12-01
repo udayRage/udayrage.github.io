@@ -46,6 +46,7 @@
 3. [PostGres](postGresCommands.html)
 4. [JupyterLab](jupyterLabCommands.html)
 5. [Vi editor](viCommands.html)
+6. [Hadoop](hadoop.html)
 
 ### Advanced Commands
 1. [Linux](linuxAdvCommands.html)
