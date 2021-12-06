@@ -18,4 +18,5 @@
     create tablespace tableSpaceName location 'folder';
     #create tablespace bigData location '/data/alt/postgres';
 
-    create database rainfall with tablespace = bigData;
+    create database databaseName with tablespace = tableSpaceName;
+    #create database rainfall with tablespace = bigData;
