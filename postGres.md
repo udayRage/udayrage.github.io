@@ -1,25 +1,29 @@
 # [Main Menu](index.html)
 
 ## Setting up of PostGres and PostGIS
+[Click here for in-depth manual](https://computingforgeeks.com/how-to-install-postgis-on-ubuntu-linux/)
 
+    sudo apt -y install gnupg2
+    wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+    echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" |sudo tee  /etc/apt/sources.list.d/pgdg.list
 ### Installation of PostGres
+[Click here for installation manual](https://computingforgeeks.com/how-to-install-postgresql-13-on-ubuntu/)
 
-    sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+    sudo apt -y install vim bash-completion wget
+    wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+    echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" |sudo tee  /etc/apt/sources.list.d/pgdg.list
     sudo apt update
-    sudo apt install postgresql-13
-    sudo pg_ctlcluster 13 main start
-    sudo systemctl start postgresql
-    sudo systemctl status postgresql
-    sudo systemctl enable postgresql
-
+    sudo apt install postgresql-13 postgresql-client-13
+    
+    systemctl status postgresql.service
+    sudo su - postgres
+    psql -c "alter user postgres with password 'StrongAdminP@ssw0rd'"   # change passwd
+    psql        # to verify
 ### Installation of PostGIS
 
 [Click here for more information](https://www.cybertec-postgresql.com/en/postgresql-getting-started-on-ubuntu/)
 
-    sudo apt list --installed | grep postgresql
-    apt-cache search postgresql-13-postgis
-    apt-cache policy postgresql-13-postgis-3 postgresql-13-postgis-3-scripts
-    sudo apt-get install postgresql-13-postgis-3=3.1.4+dfsg-1.pgdg20.04+1 postgresql-13-postgis-3-scripts=3.1.4+dfsg-1.pgdg20.04+1
+    sudo apt install postgis postgresql-13-postgis-3
     sudo systemctl restart postgresql
     sudo systemctl status postgresql
 
