@@ -89,4 +89,12 @@ Execute the following commands:
     #EXECUTE BELOW COMMAND IF ANY PROBLEM OCCURS
     sudo ln -s ~/anaconda3/bin/jupyter /usr/bin/jupyter                         
     install.packages("devtools")
+
+
+## Running the jupyterHub
+
+    conda activate jupyterHub
+    sudo ls
+    nohup sudo jupyterhub -f /home/uday/jupyterhub_config.py &
+
     
