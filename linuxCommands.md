@@ -42,4 +42,11 @@
     !number #Executes the command having the same number in the history. E.g., !109 executes the command 109 in the history.
     kill -9 pid #Kills the process whose id is -9. 
     
+#### Symbolic links to files and folders
 
+    ln -s <sourceFolder> <folderToLink>
+    Example:
+    mkdir ~/linkFolder
+    ln -s /data/code ~/linkFolder
+
+Note: you must create linkFolder before executing the folder.
