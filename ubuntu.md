@@ -66,6 +66,16 @@
     sudo ufw allow 3389/tcp
     sudo ufw reload
 
+## Installation of Open SSH Server
+[Click here for the detailed instructions](https://www.cyberciti.biz/faq/ubuntu-linux-install-openssh-server/)
+
+    sudo apt install openssh-server
+    sudo systemctl status ssh
+    sudo systemctl enable ssh
+    sudo systemctl start ssh
+ 
+
+    
 ## Installation of Tex Live.
 
     sudo apt-get install texlive-xetex texlive-full texstudio texmaker texlive-latex-extra pandoc
