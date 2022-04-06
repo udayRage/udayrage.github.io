@@ -43,72 +43,72 @@ Please note that hadoop does not maintain seperate user permissions for files an
 
 * create a user folder in hadoop by executing the following command
   
-      hdfs -dfs -mkdir userFolderName
+      hdfs dfs -mkdir userFolderName
 
-      E.g., hdfs -dfs -mkdir udayHome
+      E.g., hdfs dfs -mkdir udayHome
    
    
 
 * Change the owner of this folder to user
 
-      hdfs -dfs -chown user userFolderName
+      hdfs dfs -chown user userFolderName
 
-      E.g., hdfs -dfs -chown uday udayHome
+      E.g., hdfs dfs -chown uday udayHome
 
 
 ### Basic Hadoop Commands
 
 1. Put a file from local machine to hadoop
 
-       hdfs -dfs -put fileName /userFolderName/
+       hdfs dfs -put fileName /userFolderName/
        
        Examples:
 
-       hdfs -dfs -put text.txt /udayHome/
-       hdfs -dfs -put text*.txt /udayHome/
-       hdfs -dfs -put ~/* /udayHome/
+       hdfs dfs -put text.txt /udayHome/
+       hdfs dfs -put text*.txt /udayHome/
+       hdfs dfs -put ~/* /udayHome/
 
 2. Get a file from hadoop to local machine
 
-       hdfs -dfs -get /userFolderName/fileName  ~/folder
+       hdfs dfs -get /userFolderName/fileName  ~/folder
 
        Examples:
 
-       hdfs -dfs -get /udayHome/test.txt ~/
-       hdfs -dfs -get /udayHome/*   ~/
+       hdfs dfs -get /udayHome/test.txt ~/
+       hdfs dfs -get /udayHome/*   ~/
 
 3. Copying files in command
 
-       hdfs -dfs -get /userFolderName/mainfileName  /userFolderName/copyFileName
+       hdfs dfs -get /userFolderName/mainfileName  /userFolderName/copyFileName
 
        Examples:
 
-       hdfs -dfs -get /udayHome/text.txt /udayHome/copiedText.txt
+       hdfs dfs -get /udayHome/text.txt /udayHome/copiedText.txt
 
 4. List files in a hadoop folder
 
-       hdfs -dfs -ls /userFolderName
+       hdfs dfs -ls /userFolderName
 
        Examples:
 
-       hdfs -dfs -ls /userHome
+       hdfs dfs -ls /userHome
 
 5. Print a file located in hadoop
 
-       hdfs -dfs -cat fileName
+       hdfs dfs -cat fileName
 
        Examples:
    
-       hdfs -dfs -cat  /udayHome/text.txt 
+       hdfs dfs -cat  /udayHome/text.txt 
 
 
 6. Delete a file in hadoop
 
-       hdfs -dfs -rm [-skipTrash] fileName1 fileName2 ... 
+       hdfs dfs -rm [-skipTrash] fileName1 fileName2 ... 
 
        Examples:
 
-       hdfs -dfs -rm /udayHome/text.txt /udayHome/copiedText.txt
+       hdfs dfs -rm /udayHome/text.txt /udayHome/copiedText.txt
 
 
 [Click here for more commands](https://www.geeksforgeeks.org/hdfs-commands/)

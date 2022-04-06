@@ -44,7 +44,7 @@ If the problems still persist, then perform the following:
     sudo ln -s /home/uday/anaconda3/envs/jupyterHub/bin/jupyterhub /usr/bin/jupyterhub
     sudo ln -s /home/uday/anaconda3/envs/jupyterHub/bin/jupyterhub-singleuser /usr/bin/jupyterhub-singleuser
 
-## Installing plugins
+## Installing plugins (GDAL, nbextension, and other plugins)
 
     sudo npm install puppeteer
     wget https://github.com/jgm/pandoc/releases/download/2.14.2/pandoc-2.14.2-1-amd64.deb
@@ -54,7 +54,7 @@ If the problems still persist, then perform the following:
     pip install nbconvert[webpdf] # try with sudo if the error persists
     sudo jupyter nbconvert --to webpdf --allow-chromium-download Untitled2.ipynb   #Perform this command in jupyterHub
 
-    conda install -c conda-forge jupyterlab-latex jupyter_contrib_nbextensions jupyter_nbextensions_configurator jupyterlab-drawio jupyterlab_execute_time ipympl ipywidgets
+    conda install -c conda-forge gdal jupyterlab-latex jupyter_contrib_nbextensions jupyter_nbextensions_configurator jupyterlab-drawio jupyterlab_execute_time ipympl ipywidgets
     jupyter labextension install jupyterlab-spreadsheet
     pip3 install jupyter-tabnine --user
     jupyter nbextension install --py jupyter_tabnine --user
@@ -89,4 +89,3 @@ Execute the following commands:
     #EXECUTE BELOW COMMAND IF ANY PROBLEM OCCURS
     sudo ln -s ~/anaconda3/bin/jupyter /usr/bin/jupyter                         
     install.packages("devtools")
-    
