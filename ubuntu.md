@@ -94,12 +94,29 @@
     sudo apt install -y libcurl4-openssl-dev
     sudo apt-get install -y python-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev
     sudo apt install -y python3-pip
-    sudo apt-get install -y cdo nco      #necessary for geoAnalytics package.
+
 
     sudo pip install click
     sudo pip install mitmproxy
 
+## Installation of packages for geoAnalytics
+
+    sudo apt-get install -y cdo nco      #necessary for geoAnalytics package.
+    sudo add-apt-repository ppa:ubuntugis/ppa 
+    sudo apt-get update
+    sudo apt-get install gdal-bin
+    sudo apt-get install libgdal-dev
+
+Open .bashrc file and add the below two lines
+
+    export CPLUS_INCLUDE_PATH=/usr/include/gdal
+    export C_INCLUDE_PATH=/usr/include/gdal
+
+Execute the following command on the terminal
+
+    pip install GDAL
 ## Installation of NPM 14 and NodeJS
+
 
 [Click here for the detailed instructions](https://www.freecodecamp.org/news/how-to-install-node-js-on-ubuntu-and-update-npm-to-the-latest-version/#:~:text=npm%20install%20-g%20npm%40latest.%20If%20you%20run%20into,of%20NodeJS%20and%20NPM%20on%20your%20Ubuntu%20machine.)
 
