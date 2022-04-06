@@ -84,6 +84,8 @@
     sudo apt install -y libcurl4-openssl-dev
     sudo apt-get install -y python-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev
     sudo apt install -y python3-pip
+    sudo apt-get install -y cdo nco      #necessary for geoAnalytics package.
+
     sudo pip install click
     sudo pip install mitmproxy
 
