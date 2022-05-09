@@ -108,6 +108,7 @@ Adding attributes
 
 [Click here for more info](https://www.postgresqltutorial.com/postgresql-add-column/)
 
+### DELETE COMMAND
 Deleting attributes
 
     ALTER TABLE tableName
