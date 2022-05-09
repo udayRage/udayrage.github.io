@@ -9,9 +9,8 @@
 * int/float/double  (Numerical data)
 * char/varchar/text  (string data)
 * timestamp/date         (temporal data)
-* Array of string and numbers (Multi-valuaed attributes) 
-
-  __Not advisable as it violates the first normal form 1 NF __
+* Array of string and numbers (Multi-valued attributes, 
+__Not advisable as it violates the first normal form 1 NF__)
 
 ### CREATE COMMAND
 
@@ -66,7 +65,7 @@ Types:
 [Click here for more information](https://postgis.net/docs/using_postgis_dbmanagement.html#PostGIS_Geography)
 
 
-#### INSERT COMMAND
+### INSERT COMMAND
 
 Basic insert command
 
@@ -93,7 +92,7 @@ Inserting spatial values
     INSERT into student (name,id,location) VALUES ('YYYYYYY',2098092345, 'SRID=4326;POINT(-110 30)')
 
 
-#### ALTER COMMAND
+### ALTER COMMAND
 
 Adding attributes
 
@@ -122,3 +121,41 @@ Deleting attributes
     DELETE COLUMN email
 
 [Click here for more info](https://www.postgresqltutorial.com/postgresql-drop-column/)
+
+
+### CREATING TABLESPACES (Storing databases in different locations)
+- Login as a postGres admin
+  
+       su - postgres
+- Move to the location where you want to store data.
+
+       cd /locationToStoreData
+
+- Create a directory in a particular location.
+
+      mkdir pgData
+
+- Logout as a postGres admin. 
+- Login as a super-user/user who has permissions to create databases
+
+      su - userName
+- Login into postgres database.
+
+      psql -u userName -h localhost
+
+- Create a tablespace by executing the following command
+
+     Syntax: create tablespace tableSpaceNAME location 'directoryWhereDataHasToBeStored';
+  
+     E.g., create tablespace newspace location '/userData/pgData';
+  
+- Finally, create a database and define the location to store the data.
+
+      Syntax: create database databaseName with tablespace =tableSpaceName;
+     
+      E.g., create database newDatabase with tablespace=newspace;
+ 
+
+[Click here for more info](https://stackoverflow.com/questions/25748285/initlocation-not-working-in-postgresql)
+
+
