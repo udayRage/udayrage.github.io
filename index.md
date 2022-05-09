@@ -17,7 +17,7 @@
 4. [Creating users and giving database access](users.html)
 
     __Topics:__ Creating users, super users, and granting database access.
-  
+<!--  
 5. [Disk format, LVM, and back ups](lvm.html)
 
     __Topics:__ Disk formating, LVM, and regular back ups to remote server. 
@@ -37,7 +37,7 @@
 9. [Installation of CUDA and CUDANN](cuda.html)
 
     __Topics:__ Installing CUDA, CUDANN, and Machine Learning Libraries. 
-
+-->
 ## Users
 
 ### Basic Commands
