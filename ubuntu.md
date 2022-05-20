@@ -9,20 +9,23 @@
 
 Type the following in the file
 
-    # Let NetworkManager manage all devices on this system
-    network:
-      ethernets:
-        eno1:
-          dhcp4: false
-          addresses:
-                  - 163.143.87.200/24
-          gateway4: 163.143.87.1
-          nameservers:
-            addresses: [163.143.1.100]
-      version: 2
-      renderer: NetworkManager
+    # Let NetworkManager manage all devices on this system. Use Tab Space to maintain parent and child.
 
-save the file and exit
+    network:
+        version: 2
+        renderer: NetworkManager
+        ethernets:
+            eno1:
+                dhcp4: false
+                addresses:
+                    - 163.143.87.200/24
+                routes:
+                    - to: default
+                    via: 163.143.87.1
+                nameservers:
+                    addresses: [163.143.1.100]
+
+save the file and exit. 
 
 Type the following command on the terminal
     
@@ -104,10 +107,12 @@ Type the following command on the terminal
 
 
     
-## Installation of Tex, CURL, and Python Libraries.
+## Installation of Tex, CURL, GDAL, and Other Python Libraries.
 [Click here for the detailed instructions](https://www.cyberciti.biz/faq/how-to-install-curl-command-on-a-ubuntu-linux/)
 
     sudo apt -y install texlive-xetex texlive-full texstudio texmaker texlive-latex-extra pandoc curl  libcurl4-openssl-dev python-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev python3-pip
 
     sudo pip install click
     sudo pip install mitmproxy
+
+    sudo apt-get install -y cdo nco gdal-bin libgdal-dev

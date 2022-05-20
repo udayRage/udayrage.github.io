@@ -1,27 +1,49 @@
 # [Main Menu](index.html)
 
+## Create and login as a new sudo user
+
+    sudo useradd -m -s /bin/bash -G sudo jupyterHub
+    sudo passwd jupyterHub
+
+    su - jupyterHub
+
+## Download the latest version of Nodejs, NPM, and Anaconda
+
+    sudo apt update && sudo apt upgrade -y
+    sudo apt install -y nodejs npm libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6
+    
+    wget https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh   # TRY TO DOWNMLOAD LATEST VERSION
+    sh Anaconda3-2021.05-Linux-x86_64.sh 
+    source .bashrc 
+    conda config --set auto_activate_base false  # This command prevents the start-up of (base) environment by default
+
+
 ## Installation of JupyterHub using Conda Environment
 
     conda create --name jupyterHub python=3.8
+
     conda activate jupyterHub
+
     pip install --upgrade pip
     conda install -c conda-forge nodejs
     conda install -c conda-forge jupyterlab
     conda install -c conda-forge jupyterhub
     conda install notebook
+
     sudo ln -s /usr/bin/nodejs /usr/bin/node    
     npm install -g configurable-http-proxy
     jupyterhub --generate-config -f ~/jupyterhub_config.py
 
 Open the ~/jupyterhub_config.py file and add the below lines at the beginning of the file
 
-    c.PAMAuthenticator.open_sessions = False 
-	c.JupyterHub.bind_url = 'http://IPADDRESS:8000'
-	c.Spawner.cmd = ['~/anaconda3/envs/jupyterHub/bin/jupyterhub-singleuser']
-	c.JupyterHub.hub_bind_url = 'http://127.0.0.1:8085'
-	c.JupyterHub.hub_port = 8082
-	c.ConfigurableHTTPProxy.command = '/usr/local/bin/configurable-http-proxy’
-    c.Spawner.cmd=["jupyter-labhub"]
+    c.PAMAuthenticator.open_sessions = False
+    c.JupyterHub.bind_url = 'http://163.143.87.200:8000'
+    c.Spawner.cmd = ['/home/jupyterHub/anaconda3/envs/jupyterHub/bin/jupyterhub-singleuser']
+    c.JupyterHub.hub_bind_url = 'http://127.0.0.1:8085'
+    c.JupyterHub.hub_port = 8082
+    c.ConfigurableHTTPProxy.command = '/home/jupyterHub/anaconda3/envs/jupyterHub/bin/configurable-http-proxy'  #'/usr/local/bin/configurable-http-proxy'
+    c.Spawner.cmd=["/home/jupyterHub/anaconda3/envs/jupyterHub/bin/jupyter-labhub"]
+
 Save the file and exit
     
     chmod -R 755 ~
@@ -73,15 +95,13 @@ If the problems still persist, then perform the following:
 [Click here for the installation of R](https://linuxize.com/post/how-to-install-r-on-ubuntu-20-04/)
 
     sudo apt install -y dirmngr gnupg apt-transport-https ca-certificates software-properties-common
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-    sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
-    sudo apt install -y  r-base
-    sudo apt install -y build-essential
+    sudo apt install -y  r-base build-essential
 
 [Click here for setting up of IRKernal](https://developers.refinitiv.com/en/article-catalog/article/setup-jupyter-notebook-r )
 
 Open R shell by typing the letter R on the terminal
 
+    sudo R
 Execute the following commands:
     
     install.packages('IRkernel')

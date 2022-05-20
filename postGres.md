@@ -13,30 +13,31 @@
     wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
     echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" |sudo tee  /etc/apt/sources.list.d/pgdg.list
     sudo apt update
-    sudo apt install postgresql-13 postgresql-client-13
+    sudo apt install -y postgresql-13 postgresql-client-13
     
     systemctl status postgresql.service
     sudo su - postgres
     psql -c "alter user postgres with password 'StrongAdminP@ssw0rd'"   # change passwd
     psql        # to verify
+    exit        # to come out of postgres
 ### Installation of PostGIS
 
 [Click here for more information](https://www.cybertec-postgresql.com/en/postgresql-getting-started-on-ubuntu/)
 
-    sudo apt install postgis postgresql-13-postgis-3
+    sudo apt install -y postgis postgresql-13-postgis-3
     sudo systemctl restart postgresql
     sudo systemctl status postgresql
 
 ### Remote connection settings
 
     sudo vi /etc/postgresql/13/main/pg_hba.conf    
-    # Below "# Accept from anywhere" add the following
+    # Below "# IPv4 local connections:" add the following
         host all all 0.0.0.0/0 md5
         #Database administrative login by Unix domain socket
         local all postgres md5  
     # Save the file and exist
 
-    sudo vi /etc/postgresql/13/main/ postgresql.conf
+    sudo vi /etc/postgresql/13/main/postgresql.conf
         listen_addresses = '*'
     # Save and exist
 
