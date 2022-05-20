@@ -17,6 +17,9 @@
 4. [Creating users and giving database access](users.html)
 
     __Topics:__ Creating users, super users, and granting database access.
+5. [GeoAnalytics package](geoAnalytics.html)
+
+    __Topics:__ Installing geoAnalytics package
 <!--  
 5. [Disk format, LVM, and back ups](lvm.html)
 

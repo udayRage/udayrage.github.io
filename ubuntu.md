@@ -1,6 +1,32 @@
 # [Main Menu](index.html)
 
-#Setting up Ubuntu Server Operating System
+# Setting up Ubuntu Server Operating System
+
+## Setting up the netplan
+
+    sudo cd /etc/netplan
+    sudo vi  01-network-manager-all.yaml
+
+Type the following in the file
+
+    # Let NetworkManager manage all devices on this system
+    network:
+      ethernets:
+        eno1:
+          dhcp4: false
+          addresses:
+                  - 163.143.87.200/24
+          gateway4: 163.143.87.1
+          nameservers:
+            addresses: [163.143.1.100]
+      version: 2
+      renderer: NetworkManager
+
+save the file and exit
+
+Type the following command on the terminal
+    
+    sudo netplan apply
 
 ## Prevent Network Idle Sleep
 
@@ -32,14 +58,25 @@
 
   [Click here for the detailed instructions](https://linuxhint.com/install_clamav_ubuntu/#:~:text=Installing%20ClamAV.%20In%20order%20to%20install%20ClamAV%20on,install%20ClamAV.%20ubuntu%40ubuntu%3A~%24%20sudo%20apt-get%20install%20clamav%20clamav-daemon.)
 
-    sudo apt-get install clamav clamav-daemon mailutils -y
+    sudo apt-get install -y clamav clamav-daemon mailutils -y
     sudo systemctl stop clamav-freshclam
     sudo freshclam
-    sudo apt-get install clamtk
+    sudo apt-get install -y  clamtk
     sudo systemctl start clamav-freshclam
     sudo systemctl enable clamav-freshclam
     sudo systemctl status clamav-freshclam
 
+## Installation of openSSL and openSSH Server
+[Click here for the detailed instructions](https://www.cyberciti.biz/faq/ubuntu-linux-install-openssh-server/)
+
+    sudo apt install -y openssl libssl-dev build-essential libcurl4-gnutls-dev libxml2-dev libssl-dev openssh-server 
+    sudo systemctl status ssh
+    sudo systemctl enable ssh
+    sudo systemctl start ssh
+    sudo ufw allow ssh
+    sudo ufw enable
+    sudo ufw reload
+ 
 ## Installation of Remote Desktop
 
 [Click here for the detailed instructions](https://tecadmin.net/how-to-install-xrdp-on-ubuntu-20-04/)
@@ -58,85 +95,19 @@
     sudo systemctl status xrdp
     sudo ufw status
     sudo ufw default allow outgoing
-    sudo ufw default deny incoming
-    cat /etc/default/ufw
+    sudo ufw default deny incoming 
     sudo ufw allow ssh
     sudo ufw enable
     sudo systemctl status ufw.service
     sudo ufw allow 3389/tcp
     sudo ufw reload
 
-## Installation of Open SSH Server
-[Click here for the detailed instructions](https://www.cyberciti.biz/faq/ubuntu-linux-install-openssh-server/)
-
-    sudo apt install openssh-server
-    sudo systemctl status ssh
-    sudo systemctl enable ssh
-    sudo systemctl start ssh
- 
 
     
-## Installation of Tex Live.
-
-    sudo apt-get install texlive-xetex texlive-full texstudio texmaker texlive-latex-extra pandoc
-
-## Installation of OpenSSL
-
-    sudo apt-get install -y libssl-dev
-    sudo apt-get install -y openssl
-    sudo apt install build-essential libcurl4-gnutls-dev libxml2-dev libssl-dev
-
-## Installation of CURL and Python related libraries
-
+## Installation of Tex, CURL, and Python Libraries.
 [Click here for the detailed instructions](https://www.cyberciti.biz/faq/how-to-install-curl-command-on-a-ubuntu-linux/)
 
-    sudo apt install -y curl
-    sudo apt install -y libcurl4-openssl-dev
-    sudo apt-get install -y python-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev
-    sudo apt install -y python3-pip
-
+    sudo apt -y install texlive-xetex texlive-full texstudio texmaker texlive-latex-extra pandoc curl  libcurl4-openssl-dev python-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev python3-pip
 
     sudo pip install click
     sudo pip install mitmproxy
-
-## Installation of packages for geoAnalytics
-
-    sudo apt-get install -y cdo nco      #necessary for geoAnalytics package.
-    sudo add-apt-repository ppa:ubuntugis/ppa 
-    sudo apt-get update
-    sudo apt-get install gdal-bin
-    sudo apt-get install libgdal-dev
-
-Open .bashrc file and add the below two lines
-
-    export CPLUS_INCLUDE_PATH=/usr/include/gdal
-    export C_INCLUDE_PATH=/usr/include/gdal
-
-Execute the following command on the terminal
-
-    pip install GDAL
-## Installation of NPM 14 and NodeJS
-
-
-[Click here for the detailed instructions](https://www.freecodecamp.org/news/how-to-install-node-js-on-ubuntu-and-update-npm-to-the-latest-version/#:~:text=npm%20install%20-g%20npm%40latest.%20If%20you%20run%20into,of%20NodeJS%20and%20NPM%20on%20your%20Ubuntu%20machine.)
-
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-    # Close the bash terminal and open the new terminal
-
-    nvm install 14.4.0
-    sudo apt update && sudo apt upgrade
-
-    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-    sudo apt-get install -y nodejs
-
-## Installation of Anacoda
-
-    sudo apt update && sudo apt upgrade
-    apt-get install -y libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6
-    
-    wget https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh   # TRY TO DOWNMLOAD LATEST VERSION
-    sh Anaconda3-2021.05-Linux-x86_64.sh 
-    source .bashrc 
-    conda config --set auto_activate_base false  # This command prevents the start-up of (base) environment by default
-
-    
