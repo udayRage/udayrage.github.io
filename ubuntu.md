@@ -64,6 +64,7 @@ Type the following command on the terminal
     sudo apt-get install -y clamav clamav-daemon mailutils -y
     sudo systemctl stop clamav-freshclam
     sudo freshclam
+    # Choose noConfiguration option when asked.
     sudo apt-get install -y  clamtk
     sudo systemctl start clamav-freshclam
     sudo systemctl enable clamav-freshclam
@@ -107,7 +108,7 @@ Type the following command on the terminal
 
 
     
-## Installation of Tex, CURL, GDAL, and Other Python Libraries.
+## Installation of Tex, CURL, and Other Python Libraries.
 [Click here for the detailed instructions](https://www.cyberciti.biz/faq/how-to-install-curl-command-on-a-ubuntu-linux/)
 
     sudo apt -y install texlive-xetex texlive-full texstudio texmaker texlive-latex-extra pandoc curl  libcurl4-openssl-dev python-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev python3-pip
@@ -115,4 +116,4 @@ Type the following command on the terminal
     sudo pip install click
     sudo pip install mitmproxy
 
-    sudo apt-get install -y cdo nco gdal-bin libgdal-dev
+    

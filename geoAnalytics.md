@@ -4,11 +4,22 @@
 
 ## Installation of necessary packages
 
-    sudo apt-get install -y cdo nco      #necessary for geoAnalytics package.
-    sudo add-apt-repository ppa:ubuntugis/ppa 
-    sudo apt-get update
-    sudo apt-get install gdal-bin
-    sudo apt-get install libgdal-dev
+    sudo apt-get update && sudo apt upgrade -y && sudo apt autoremove 
+    sudo apt-get install -y cdo nco gdal-bin libgdal-dev
+    
+    
+
+    python -m pip install --upgrade pip setuptools wheel
+    python -m pip install --upgrade gdal
+    #check whether the above commands install/upgrades gdal or not
+
+    conda install -c conda-forge libgdal
+    conda install poppler
+    conda install -c conda-forge gdal
+
+    ogrinfo --version
+    # the above command must give an output
+
 
 Open .bashrc file and add the below two lines
 
@@ -18,3 +29,4 @@ Open .bashrc file and add the below two lines
 Execute the following command on the terminal
 
     pip install GDAL
+    
