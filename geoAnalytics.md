@@ -2,7 +2,13 @@
 
 #Setting up geoAnalytics Package 
 
-## Installation of necessary packages
+## Installation of necessary GDAL packages
+
+Login into jupyter sudo-user and activate jupyterHub conda environment by executing the following command
+
+    conda activate jupyterHub
+
+In the jupyterHub conda environment, perform the below steps. 
 
     sudo apt-get update && sudo apt upgrade -y && sudo apt autoremove 
     sudo apt-get install -y cdo nco gdal-bin libgdal-dev
@@ -28,5 +34,5 @@ Open .bashrc file and add the below two lines
 
 Execute the following command on the terminal
 
-    pip install GDAL
+    pip install GDAL geoAnalytics
     
