@@ -20,48 +20,26 @@
 5. [GeoAnalytics package](geoAnalytics.html)
 
     __Topics:__ Installing geoAnalytics package
-<!--  
-5. [Disk format, LVM, and back ups](lvm.html)
 
-    __Topics:__ Disk formating, LVM, and regular back ups to remote server. 
-  
-6. [Setting up Hadoop, Spark, and HBase](bigData.html)
+## Tutorials
 
-    __Topics:__ Setting up Haddop, Configuring Haddop, Setting up Spark, Configuring Spark, Setting up HBase, and Configuring HBase.
-  
-7. [Setting up MongoDB](mongoDB.html)
+### Linux
+1. [Basic](linuxCommands.html)
+2. [Advanced](linuxAdvCommands.html)
+3. [Pro](linuxProCommands.html)
 
-    __Topics__: Setting up MongoDB, Sharding, and creating users.
-   
-8. [Setting up Cassandra](cassandra.html)
+### PostGres
 
-    __Topics:__ Setting up Cassandra, creating users and databases.
+1. [Basic](postGresCommands.html)
+2. [Advanced](postGresAdvCommands.html)
+3. [Pro](postGresProCommands.html)
 
-9. [Installation of CUDA and CUDANN](cuda.html)
+### Others
 
-    __Topics:__ Installing CUDA, CUDANN, and Machine Learning Libraries. 
--->
-## Users
-
-### Basic Commands
-1. [Linux](linuxCommands.html)
-2. [Conda](condaCommands.html)
-3. [PostGres](postGresCommands.html)
-4. [JupyterLab](jupyterLabCommands.html)
-5. [Vi editor](viCommands.html)
-6. [Hadoop](hadoop.html)
-
-
-### Advanced Commands
-1. [Linux](linuxAdvCommands.html)
-2. [PostGres](postGresAdvCommands.html)
-3. [Tunneling](sshAdvCommands.html)
-4. [Reading HDFS file in Python](pythonHDFS.html)
-5. [Spark](pythonSpark.html)
-
-
-### Pro Commands
-1. [Linux](linuxProCommands.html)
-2. [PostGres](postGresProCommands.html)
-3. [Starting JupyterHub](startJupyterHub.html)
+1. [Jupyter](jupyterLabCommands.html) 
+2. [Vi editor](viCommands.html)
+3. [Hadoop](hadoop.html)
+4. [Conda](condaCommands.html)
+5. [Tunneling](sshAdvCommands.html)
+6. [Starting JupyterHub](startJupyterHub.html)
 
