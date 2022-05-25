@@ -20,19 +20,11 @@ In the jupyterHub conda environment, perform the below steps.
     #check whether the above commands install/upgrades gdal or not
 
     conda install -c conda-forge libgdal
-    conda install poppler
     conda install -c conda-forge gdal
+    conda install tiledb=2.2
+    conda install poppler
 
     ogrinfo --version
     # the above command must give an output
 
-
-Open .bashrc file and add the below two lines
-
-    export CPLUS_INCLUDE_PATH=/usr/include/gdal
-    export C_INCLUDE_PATH=/usr/include/gdal
-
-Execute the following command on the terminal
-
-    pip install GDAL geoAnalytics
-    
+    pip install geoAnalytics
