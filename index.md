@@ -21,6 +21,10 @@
 
     __Topics:__ Installing geoAnalytics package
 
+6. [Setting up LDAP Client](ldap.html)
+
+    __Topics:__ Installing geoAnalytics package
+7. 
 ## Tutorials
 
 ### Linux

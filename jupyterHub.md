@@ -18,7 +18,7 @@
     conda config --set auto_activate_base false  # This command prevents the start-up of (base) environment by default
 
 
-## Installation of JupyterHub using Conda Environment
+## Install JupyterHub on a Conda Environment
 
     conda create --name jupyterHub python=3.8
 
