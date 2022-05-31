@@ -36,7 +36,7 @@ Type the following command on the terminal
 [Click here for the detailed instructions](https://ubuntu-mate.community/t/stop-network-disconnecting-in-ubuntu/829)
 
     sudo vi /etc/avahi/avahi-daemon.conf
-    # Update  word=local  to word=.alocal
+    # Update  domain-name=local  to domain-name=.alocal
     # Save the file and exit
 
     sudo vi /etc/default/avahi-daemon
@@ -46,6 +46,22 @@ Type the following command on the terminal
     sudo systemctl disable systemd-networkd-wait-online.service
     sudo systemctl mask systemd-networkd-wait-online.service
     sudo reboot  #NOT NECESSARY IF YOU ARE DOING THE NEXT STEP IMMEDIATELY
+
+## Prevent remote network disconnection during idle
+
+    sudo apt install openssh-server -y
+
+    sudo vi /etc/ssh/sshd_config
+
+Add the below lines
+
+    ClientAliveInterval 600
+    TCPKeepAlive yes
+    ClientAliveCountMax 10
+
+Restart the server to take effect
+
+    sudo /etc/init.d/ssh restart
 
 ## Installation of GUI
 
@@ -61,7 +77,7 @@ Type the following command on the terminal
 
   [Click here for the detailed instructions](https://linuxhint.com/install_clamav_ubuntu/#:~:text=Installing%20ClamAV.%20In%20order%20to%20install%20ClamAV%20on,install%20ClamAV.%20ubuntu%40ubuntu%3A~%24%20sudo%20apt-get%20install%20clamav%20clamav-daemon.)
 
-    sudo apt-get install -y clamav clamav-daemon mailutils -y
+    sudo apt-get install -y clamav clamav-daemon mailutils
     sudo systemctl stop clamav-freshclam
     sudo freshclam
     # Choose noConfiguration option when asked.
@@ -111,8 +127,8 @@ Type the following command on the terminal
 ## Installation of Tex, CURL, and Other Python Libraries.
 [Click here for the detailed instructions](https://www.cyberciti.biz/faq/how-to-install-curl-command-on-a-ubuntu-linux/)
 
-    sudo apt -y install texlive-xetex texlive-full texstudio texmaker texlive-latex-extra pandoc curl  libcurl4-openssl-dev python-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev python3-pip
-
+    sudo apt -y install texlive-xetex texlive-full texstudio texmaker texlive-latex-extra pandoc curl  libcurl4-openssl-dev  libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev python3-pip
+    #python-dev 
     sudo pip install click
     sudo pip install mitmproxy
 

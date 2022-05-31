@@ -41,6 +41,47 @@
         listen_addresses = '*'
     # Save and exist
 
+### Testing the remote connection
+
+Open the terminal in the jupyterHub and execute the below command to install psycopg2 library. 
+
+    sudo pip install psycopg2
+
+Create a file testDBConnection.py, and copy paste the below code
+
+    import psycopg2
+    from psycopg2 import Error
+
+    try:
+        # Connect to an existing database
+        connection = psycopg2.connect(user="USER_NAME",      # set your user name
+                                      password="PASSWORD",   # Set your password
+                                      host="163.143.87.200",
+                                      port="5432",
+                                      database="kaguya")
+
+        # Create a cursor to perform database operations
+        cursor = connection.cursor()
+        # Print PostgreSQL details
+        print("PostgreSQL server information")
+        print(connection.get_dsn_parameters(), "\n")
+        # Executing a SQL query
+        cursor.execute("SELECT version();")
+        # Fetch result
+        record = cursor.fetchone()
+        print("You are connected to - ", record, "\n")
+
+    except (Exception, Error) as error:
+        print("Error while connecting to PostgreSQL", error)
+    finally:
+        if (connection):
+            cursor.close()
+            connection.close()
+            print("PostgreSQL connection is closed")
+
+
+Execute this program to test the remote connection.
+
 ### Removing PostGres and PostGIS
 
     sudo apt-get --purge remove postgresql   # OR
