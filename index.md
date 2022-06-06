@@ -22,6 +22,8 @@
     __Topics:__ Installing geoAnalytics package
 
 6. [Creating a python repository in PYPI](pypi.html)
+
+    __Topics:__ Installing necessary packages, writing codes, and running them.
 7. [Setting up LDAP Client](ldap.html)
 
     __Topics:__ Setting up of LDAP client 
