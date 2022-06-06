@@ -17,8 +17,9 @@
     source .bashrc 
     conda config --set auto_activate_base false  # This command prevents the start-up of (base) environment by default
 
+    conda update -n base -c defaults conda   #updates the conda to the latest version
 
-## Installation of JupyterHub using Conda Environment
+## Install JupyterHub on a Conda Environment
 
     conda create --name jupyterHub python=3.8
 
@@ -37,7 +38,7 @@
 Open the ~/jupyterhub_config.py file and add the below lines at the beginning of the file
 
     c.PAMAuthenticator.open_sessions = False
-    c.JupyterHub.bind_url = 'http://163.143.87.200:8000'
+    c.JupyterHub.bind_url = 'http://163.143.87.200:8000'   #REPLACE the IPADDRESS
     c.Spawner.cmd = ['/home/jupyterHub/anaconda3/envs/jupyterHub/bin/jupyterhub-singleuser']
     c.JupyterHub.hub_bind_url = 'http://127.0.0.1:8085'
     c.JupyterHub.hub_port = 8082
@@ -66,7 +67,7 @@ If the problems still persist, then perform the following:
     sudo ln -s /home/uday/anaconda3/envs/jupyterHub/bin/jupyterhub /usr/bin/jupyterhub
     sudo ln -s /home/uday/anaconda3/envs/jupyterHub/bin/jupyterhub-singleuser /usr/bin/jupyterhub-singleuser
 
-## Installing plugins (GDAL, nbextension, and other plugins)
+## Installing plugins (nbextension, and other plugins)
 
     sudo npm install puppeteer
     wget https://github.com/jgm/pandoc/releases/download/2.14.2/pandoc-2.14.2-1-amd64.deb
@@ -76,7 +77,7 @@ If the problems still persist, then perform the following:
     pip install nbconvert[webpdf] # try with sudo if the error persists
     sudo jupyter nbconvert --to webpdf --allow-chromium-download Untitled2.ipynb   #Perform this command in jupyterHub
 
-    conda install -c conda-forge gdal jupyterlab-latex jupyter_contrib_nbextensions jupyter_nbextensions_configurator jupyterlab-drawio jupyterlab_execute_time ipympl ipywidgets
+    conda install -c conda-forge jupyterlab-latex jupyter_contrib_nbextensions jupyter_nbextensions_configurator jupyterlab-drawio jupyterlab_execute_time ipympl ipywidgets
     jupyter labextension install jupyterlab-spreadsheet
     pip3 install jupyter-tabnine --user
     jupyter nbextension install --py jupyter_tabnine --user

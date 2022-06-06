@@ -22,6 +22,11 @@
     __Topics:__ Installing geoAnalytics package
 
 6. [Creating a python repository in PYPI](pypi.html)
+7. [Setting up LDAP Client](ldap.html)
+
+    __Topics:__ Setting up of LDAP client 
+
+
 ## Tutorials
 
 ### Linux
