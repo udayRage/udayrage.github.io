@@ -21,6 +21,7 @@
 
     __Topics:__ Installing geoAnalytics package
 
+6. [Creating a python repository in PYPI](pypi.html)
 ## Tutorials
 
 ### Linux
