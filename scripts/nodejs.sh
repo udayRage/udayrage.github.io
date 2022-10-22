@@ -27,7 +27,3 @@ echo "Installing Anaconda"
 wget https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh   # TRY TO DOWNMLOAD LATEST VERSION
 read -p "Press 'Enter', 'Yes,' 'Enter,'  and 'Yes' when asked" -n1 -s
 sh Anaconda3-2021.05-Linux-x86_64.sh
-source .bashrc
-
-echo "Close the current terminal. Continue the installation process in a new terminal"
-

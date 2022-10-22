@@ -1,7 +1,7 @@
 sudo  apt-get  update && sudo  apt-get  upgrade
 
 echo "Installing Tex, CURL, GUI, Anti-virus and OpenSSH libraries:"
-sudo  apt-get  install -y  wget texlive-xetex texlive-full texstudio texmaker texlive-latex-extra pandoc curl  libcurl4-openssl-dev  libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev python3-pip openssl libssl-dev build-essential libcurl4-gnutls-dev libxml2-dev libssl-dev openssh-server tasksel lightdm clamav clamav-daemon mailutils
+sudo  apt-get  install -y  wget texlive-xetex texlive-full texstudio texmaker texlive-latex-extra pandoc curl  libcurl4-openssl-dev  libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev python3-pip openssl libssl-dev build-essential libcurl4-gnutls-dev libxml2-dev libssl-dev openssh-server tasksel lightdm clamav clamav-daemon mailutils gnupg2  vim bash-completion
 
 echo "Setting up Python Libraries"
 sudo pip install click

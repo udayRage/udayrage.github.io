@@ -2,7 +2,7 @@
 
 ## Administrators
 
-1. [Setting up of Ubuntu Server](ubuntu.html)
+1. [Setting up a Ubuntu Server](ubuntu.html)
 
     __Topics:__ Installation of GUI, Anti-virus, Remote Desktop, Prevent Network Idle Sleep, and Installation of Tex Live, NPM, and Node JS.
     

@@ -76,8 +76,72 @@ Save the file and exit. Next, type the following command on the terminal:
     wget https://udayrage.github.io/scripts/networkSleepPrevent.sh
     sh networkSleepPrevent.sh
 
+If the above command does not work, then execute the below:
+
+    sudo vi /etc/ssh/sshd_config
+
+Add the below lines
+
+    ClientAliveInterval 600
+    TCPKeepAlive yes
+    ClientAliveCountMax 10
+
+Save the file and restart the server to take effect
+
+    sudo /etc/init.d/ssh restart
+
 ## 5) Installation of GUI, Anti-virus, OpenSSH, Tex, CURL and Other Python Libraries
 
     wget https://udayrage.github.io/scripts/antiVirusOpenSSLTex.sh
     sh antiVirusOpenSSLTex.sh
 
+
+The below steps can be avoided if you execute the above code.
+
+### i. Installation of GUI
+
+   [Click here for the detailed instructions](https://phoenixnap.com/kb/how-to-install-a-gui-on-ubuntu) 
+
+    sudo  apt-get  update && sudo  apt-get  upgrade 
+    sudo  apt-get  install -y  tasksel 
+    sudo  apt-get  install  -y lightdm 
+    sudo  tasksel # Choose Ubuntu Desktop in the options and press OK
+    sudo  reboot 
+
+### ii. Installation of Anti-virus
+
+  [Click here for the detailed instructions](https://linuxhint.com/install_clamav_ubuntu/#:~:text=Installing%20ClamAV.%20In%20order%20to%20install%20ClamAV%20on,install%20ClamAV.%20ubuntu%40ubuntu%3A~%24%20sudo%20apt-get%20install%20clamav%20clamav-daemon.)
+
+    sudo apt-get install -y clamav clamav-daemon mailutils
+    sudo systemctl stop clamav-freshclam
+    sudo freshclam
+    # Choose noConfiguration option when asked.
+    sudo apt-get install -y  clamtk
+    sudo systemctl start clamav-freshclam
+    sudo systemctl enable clamav-freshclam
+    sudo systemctl status clamav-freshclam
+
+### iii. Installation of openSSL and openSSH Server
+[Click here for the detailed instructions](https://www.cyberciti.biz/faq/ubuntu-linux-install-openssh-server/)
+
+    sudo apt install -y openssl libssl-dev build-essential libcurl4-gnutls-dev libxml2-dev libssl-dev openssh-server 
+    sudo systemctl status ssh
+    sudo systemctl enable ssh
+    sudo systemctl start ssh
+    sudo ufw allow ssh
+    sudo ufw enable
+    sudo ufw reload
+ 
+
+
+
+    
+### iv. Installation of Tex, CURL, and Other Python Libraries.
+[Click here for the detailed instructions](https://www.cyberciti.biz/faq/how-to-install-curl-command-on-a-ubuntu-linux/)
+
+    sudo apt -y install texlive-xetex texlive-full texstudio texmaker texlive-latex-extra pandoc curl  libcurl4-openssl-dev  libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev python3-pip
+    #python-dev 
+    sudo pip install click
+    sudo pip install mitmproxy
+
+    

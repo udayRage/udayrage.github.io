@@ -1,44 +1,51 @@
 # [Main Menu](index.html)
 
-## 1. Installation of PostGres and PostGIS
+## Setting up of PostGres and PostGIS
+[Click here for in-depth manual](https://computingforgeeks.com/how-to-install-postgis-on-ubuntu-linux/)
 
-    wget https://udayrage.github.io/scripts/postgres.sh
-    sh postgres.sh
+    sudo apt -y install gnupg2
+    wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+    echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" |sudo tee  /etc/apt/sources.list.d/pgdg.list
+### Installation of PostGres
+[Click here for installation manual](https://computingforgeeks.com/how-to-install-postgresql-13-on-ubuntu/)
 
-## 2. Setting up password for the postgres user
-
+    sudo apt -y install vim bash-completion wget
+    wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+    echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" |sudo tee  /etc/apt/sources.list.d/pgdg.list
+    sudo apt update
+    sudo apt install -y postgresql-13 postgresql-client-13
+    
+    systemctl status postgresql.service
     sudo su - postgres
     psql -c "alter user postgres with password 'StrongAdminP@ssw0rd'"   # change passwd
     psql        # to verify
     exit        # to come out of postgres
+### Installation of PostGIS
 
-## 3.  Remote connection settings
+[Click here for more information](https://www.cybertec-postgresql.com/en/postgresql-getting-started-on-ubuntu/)
 
-Execute the following command on the terminal
+    sudo apt install -y postgis postgresql-13-postgis-3
+    sudo systemctl restart postgresql
+    sudo systemctl status postgresql
+
+### Remote connection settings
 
     sudo vi /etc/postgresql/13/main/pg_hba.conf    
-
-Below "# IPv4 local connections:" add the following
-
+    # Below "# IPv4 local connections:" add the following
         host all all 0.0.0.0/0 md5
         #Database administrative login by Unix domain socket
         local all postgres md5  
-
-Save the file and exit. Next, execute the following command.
+    # Save the file and exist
 
     sudo vi /etc/postgresql/13/main/postgresql.conf
+        listen_addresses = '*'
+    # Save and exist
 
-Set
-
-    listen_addresses = '*'      #Allows connection form any ipaddress
-
-Save and exist
-
-## 4. Testing the remote connection
+### Testing the remote connection
 
 Open the terminal in the jupyterHub and execute the below command to install psycopg2 library. 
 
-    pip install psycopg2
+    sudo pip install psycopg2
 
 Create a file testDBConnection.py, and copy paste the below code
 
@@ -47,9 +54,9 @@ Create a file testDBConnection.py, and copy paste the below code
 
     try:
         # Connect to an existing database
-        connection = psycopg2.connect(user="USER_NAME",      # Set your user name
+        connection = psycopg2.connect(user="USER_NAME",      # set your user name
                                       password="PASSWORD",   # Set your password
-                                      host="IPADDRESS",      # Set ipaddress   
+                                      host="163.143.87.200",
                                       port="5432",
                                       database="kaguya")
 
@@ -75,7 +82,7 @@ Create a file testDBConnection.py, and copy paste the below code
 
 Execute this program to test the remote connection.
 
-## 5. Removing PostGres and PostGIS
+### Removing PostGres and PostGIS
 
     sudo apt-get --purge remove postgresql   # OR
     sudo apt-get --purge remove postgresql-14  # Version number

@@ -1,9 +1,3 @@
-conda config --set auto_activate_base false  # This command prevents the start-up of (base) environment by default
-conda update -n base -c defaults conda -y  #updates the conda to the latest version
-
-conda create --name jupyterHub python=3.10 -y   #Creating conda environment
-conda activate jupyterHub #Activating jupyterHub environment
-
 echo "Installation of jupyterHub, jupyterLab, puppeteer, and configurable-http-proxy"
 pip install --upgrade pip
 conda install -c conda-forge jupyterlab jupyterhub -y  #nodejs
