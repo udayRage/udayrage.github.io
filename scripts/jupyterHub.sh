@@ -1,3 +1,9 @@
+conda config --set auto_activate_base false  # This command prevents the start-up of (base) environment by default
+conda update -n base -c defaults conda -y  #updates the conda to the latest version
+
+conda create --name jupyterHub python=3.10 -y   #Creating conda environment
+conda activate jupyterHub #Activating jupyterHub environment
+
 echo "Installation of jupyterHub, jupyterLab, puppeteer, and configurable-http-proxy"
 pip install --upgrade pip
 conda install -c conda-forge jupyterlab jupyterhub -y  #nodejs
@@ -17,6 +23,7 @@ sudo dpkg -i pandoc-2.14.2-1-amd64.deb
 conda install nbconvert       # try with sudo if the error persists
 pip install nbconvert[webpdf] # try with sudo if the error persists
 
+
 jupyter labextension install jupyterlab-spreadsheet
 pip3 install jupyter-tabnine --user
 jupyter nbextension install --py jupyter_tabnine --user
@@ -29,7 +36,7 @@ sudo jupyter contrib nbextension install
 pip install jupyter_nbextensions_configurator
 sudo jupyter nbextensions_configurator enable --system
 
-conda install -c conda-forge jupyterlab-drawio
+conda install -c conda-forge -y jupyterlab-drawio
 
 
 

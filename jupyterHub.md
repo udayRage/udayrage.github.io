@@ -36,6 +36,7 @@ Save the file and exit
 Open R shell by typing the letter R on the terminal
 
     sudo R
+
 Execute the following commands:
     
     install.packages('IRkernel')

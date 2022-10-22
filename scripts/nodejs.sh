@@ -28,9 +28,6 @@ wget https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh   # TRY
 read -p "Press 'Enter', 'Yes,' 'Enter,'  and 'Yes' when asked" -n1 -s
 sh Anaconda3-2021.05-Linux-x86_64.sh
 source .bashrc
-conda config --set auto_activate_base false  # This command prevents the start-up of (base) environment by default
-conda update -n base -c defaults conda -y  #updates the conda to the latest version
 
-conda create --name jupyterHub python=3.10 -y   #Creating conda environment
-conda activate jupyterHub #Activating jupyterHub environment
+echo "Close the current terminal. Continue the installation process in a new terminal"
 
