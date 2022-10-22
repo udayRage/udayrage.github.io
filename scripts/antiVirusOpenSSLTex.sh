@@ -28,3 +28,6 @@ sudo ufw reload
 
 read -p "Setting up the tasksel GUI. Choose 'Ubuntu Desktop'" -n1 -s
 sudo  tasksel
+
+echo "Basic libraries have been installed. Rebooting the server"
+sudo reboot
