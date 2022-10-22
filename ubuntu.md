@@ -1,6 +1,6 @@
 # [Main Menu](index.html)
 
-# Setting up Ubuntu Server Operating System
+# Installing Ubuntu Server Operating System
 
 ## Setting up the netplan
 
@@ -30,6 +30,31 @@ save the file and exit.
 Type the following command on the terminal
     
     sudo netplan apply
+
+## Installation of Remote Desktop
+
+[Click here for the detailed instructions](https://tecadmin.net/how-to-install-xrdp-on-ubuntu-20-04/)
+
+    sudo apt install xrdp -y 
+    sudo systemctl status xrdp
+    sudo usermod -a -G ssl-cert xrdp
+
+    sudo vi /etc/xrdp/startwm.sh
+    # Add below statements above the line test -x (line 32 around)    
+        Unset DBUS_SESSION_ADDRESS
+	    Unset XDG_RUNTIME_DIR
+    # Save the file and exit
+
+    sudo systemctl restart xrdp 
+    sudo systemctl status xrdp
+    sudo ufw status
+    sudo ufw default allow outgoing
+    sudo ufw default deny incoming 
+    sudo ufw allow ssh
+    sudo ufw enable
+    sudo systemctl status ufw.service
+    sudo ufw allow 3389/tcp
+    sudo ufw reload
 
 ## Prevent Network Idle Sleep
 
@@ -63,17 +88,25 @@ Restart the server to take effect
 
     sudo /etc/init.d/ssh restart
 
-## Installation of GUI
+## Installation of GUI, Anti-virus, OpenSSH, Tex, CURL and Other Python Libraries
+
+    wget https://udayrage.github.io/scripts/antiVirusOpenSSLTex.sh
+
+    sh antiVirusOpenSSLTex.sh
+
+    The below steps can be avoided if you execute the above code.
+
+### 1. Installation of GUI
 
    [Click here for the detailed instructions](https://phoenixnap.com/kb/how-to-install-a-gui-on-ubuntu) 
 
     sudo  apt-get  update && sudo  apt-get  upgrade 
     sudo  apt-get  install -y  tasksel 
     sudo  apt-get  install  -y lightdm 
-    sudo  tasksel 
+    sudo  tasksel # Choose Ubuntu Desktop in the options and press OK
     sudo  reboot 
 
-## Installation of Anti-virus
+### 2. Installation of Anti-virus
 
   [Click here for the detailed instructions](https://linuxhint.com/install_clamav_ubuntu/#:~:text=Installing%20ClamAV.%20In%20order%20to%20install%20ClamAV%20on,install%20ClamAV.%20ubuntu%40ubuntu%3A~%24%20sudo%20apt-get%20install%20clamav%20clamav-daemon.)
 
@@ -86,7 +119,7 @@ Restart the server to take effect
     sudo systemctl enable clamav-freshclam
     sudo systemctl status clamav-freshclam
 
-## Installation of openSSL and openSSH Server
+### 3. Installation of openSSL and openSSH Server
 [Click here for the detailed instructions](https://www.cyberciti.biz/faq/ubuntu-linux-install-openssh-server/)
 
     sudo apt install -y openssl libssl-dev build-essential libcurl4-gnutls-dev libxml2-dev libssl-dev openssh-server 
@@ -97,34 +130,11 @@ Restart the server to take effect
     sudo ufw enable
     sudo ufw reload
  
-## Installation of Remote Desktop
 
-[Click here for the detailed instructions](https://tecadmin.net/how-to-install-xrdp-on-ubuntu-20-04/)
-
-    sudo apt install xrdp -y 
-    sudo systemctl status xrdp
-    sudo usermod -a -G ssl-cert xrdp
-
-    sudo vi /etc/xrdp/startwm.sh
-    # Add below statements above the line test -x (line 32 around)    
-        Unset DBUS_SESSION_ADDRESS
-	    Unset XDG_RUNTIME_DIR
-    # Save the file and exit
-
-    sudo systemctl restart xrdp 
-    sudo systemctl status xrdp
-    sudo ufw status
-    sudo ufw default allow outgoing
-    sudo ufw default deny incoming 
-    sudo ufw allow ssh
-    sudo ufw enable
-    sudo systemctl status ufw.service
-    sudo ufw allow 3389/tcp
-    sudo ufw reload
 
 
     
-## Installation of Tex, CURL, and Other Python Libraries.
+### 4. Installation of Tex, CURL, and Other Python Libraries.
 [Click here for the detailed instructions](https://www.cyberciti.biz/faq/how-to-install-curl-command-on-a-ubuntu-linux/)
 
     sudo apt -y install texlive-xetex texlive-full texstudio texmaker texlive-latex-extra pandoc curl  libcurl4-openssl-dev  libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev python3-pip
