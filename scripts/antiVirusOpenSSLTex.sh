@@ -7,8 +7,10 @@ echo "Setting up Python Libraries"
 sudo pip install click
 sudo pip install mitmproxy
 
-echo "Setting up anti-virus. Please choose 'No Configuration' option when asked."
+echo "Setting up anti-virus."
 sudo systemctl stop clamav-freshclam
+
+read -p "Choose 'No Configuration' option. Press any key to continue... " -n1 -s
 sudo freshclam -d -c 2  #freshclam
 sudo systemctl start clamav-freshclam
 sudo systemctl enable clamav-freshclam
@@ -24,5 +26,5 @@ sudo ufw allow ssh
 sudo ufw enable
 sudo ufw reload
 
-echo "Setting up the tasksel GUI. Choose 'Ubuntu Desktop'"
+read -p "Setting up the tasksel GUI. Choose 'Ubuntu Desktop'" -n1 -s
 sudo  tasksel
