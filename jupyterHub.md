@@ -1,27 +1,65 @@
 # [Main Menu](index.html)
 
-## Create and login as a new sudo user
+## 1. Create and login as a new sudo user
 
     sudo useradd -m -s /bin/bash -G sudo jupyterHub
     sudo passwd jupyterHub
 
     su - jupyterHub
 
-## Download the latest version of Nodejs, NPM, and Anaconda
+## 2. Installation of NodeJS, R, Julia, and Anaconda
+   Execute the below commands
 
-    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-    # If necessary, run below commands to remove old version of nodejs
-        sudo apt-get purge nodejs npm
-        sudo apt-get autoremove
-    sudo apt update && sudo apt upgrade -y
-    sudo apt install -y nodejs npm libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6 gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget
+    wget https://udayrage.github.io/scripts/nodejs.sh
+    sh nodejs.sh
+
+## 3. Installation and setting up of jupyterHub and its plugins 
+Execute the below commands
+
+    wget https://udayrage.github.io/scripts/jupyterHub.sh
+    sh jupyterHub.sh
+ 
+## 4. Configuring jupyterHub
+Open the ~/jupyterhub_config.py file and add the below lines at the beginning of the file
+
+    c.PAMAuthenticator.open_sessions = False
+    c.JupyterHub.bind_url = 'http://163.143.87.200:8000'   #REPLACE the IPADDRESS
+    c.Spawner.cmd = ['/home/jupyterHub/anaconda3/envs/jupyterHub/bin/jupyterhub-singleuser']
+    c.JupyterHub.hub_bind_url = 'http://127.0.0.1:8085'
+    c.JupyterHub.hub_port = 8082
+    c.ConfigurableHTTPProxy.command = '/home/jupyterHub/anaconda3/envs/jupyterHub/bin/configurable-http-proxy'  #'/usr/local/bin/configurable-http-proxy'
+    c.Spawner.cmd=["/home/jupyterHub/anaconda3/envs/jupyterHub/bin/jupyter-labhub"]
+
+Save the file and exit
     
-    wget https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh   # TRY TO DOWNMLOAD LATEST VERSION
-    sh Anaconda3-2021.05-Linux-x86_64.sh  # Press 'Enter', 'Yes,' 'Enter,'  and 'Yes' when asked
-    source .bashrc 
-    conda config --set auto_activate_base false  # This command prevents the start-up of (base) environment by default
+## 5. Setting up R-environment
+Open R shell by typing the letter R on the terminal
 
-    conda update -n base -c defaults conda -y  #updates the conda to the latest version
+    sudo R
+Execute the following commands:
+    
+    install.packages('IRkernel')
+    IRkernel::installspec(user = FALSE)     #As jupyterHub is installed in an Environment   
+    #EXECUTE BELOW COMMAND IF ANY PROBLEM OCCURS
+    sudo ln -s ~/anaconda3/bin/jupyter /usr/bin/jupyter                         
+    install.packages("devtools")
+
+Press Control+D and press n 
+
+    conda install -c r r-irkernel  -y    
+    
+
+## 6. Setting up Julia
+Restart Jupyterhub, login, and start the terminal. In the terminal, type the following commands:
+
+    julia
+    import Pkg
+    Pkg.add("IJulia")
+
+
+# Old version text. Refer only for backup purposes.
+
+
 
 ## Install JupyterHub on a Conda Environment
 
