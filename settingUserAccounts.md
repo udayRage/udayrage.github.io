@@ -24,7 +24,7 @@ save your data and programs.
       cd ~
       mkdir /userData/studentID  #create your directory in the mounted disk 
       mkdir rdir #create a directory that will remotely connect to your directory in the mounted disk
-      ln -s rdir /userData/studentID    #link the directories
+      ln -s /userData/studentID   rdir #link the directories
 
       cd rdir # will take you to your remote directory
 

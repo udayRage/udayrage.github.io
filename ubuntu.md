@@ -85,3 +85,9 @@ Save the file and exit. Next, type the following command on the terminal:
 
     echo 1 | sudo tee /proc/sys/vm/overcommit_memory
 
+## 7) Recording the history of each user's commands with a timestamp
+
+    vi /etc/profile
+    export HISTTIMEFORMAT="%F %T " 
+    #save and exit
+    
