@@ -81,3 +81,7 @@ Save the file and exit. Next, type the following command on the terminal:
     wget https://udayrage.github.io/scripts/antiVirusOpenSSLTex.sh
     sh antiVirusOpenSSLTex.sh
 
+## 6) Allowing a program to utilize more memory 
+
+    echo 1 | sudo tee /proc/sys/vm/overcommit_memory
+
