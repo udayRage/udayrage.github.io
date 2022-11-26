@@ -1,6 +1,20 @@
 # Topics
 
-## Administrators
+## Basics
+1. [Computing Environment in RAGE's lab](compute.html)
+2. [Methods to access the Severs](access.html)
+3. [Setting the user accounts in the servers](settingUserAccounts.html)
+4. Tutorials
+   1. Linux: [Basic commands](linuxCommands.html). [Advanced commands](linuxAdvCommands.html), and [Pro commands](linuxProCommands.html)
+   2. PostGres: [Basic SQL](postGresCommands.html), [Advanced SQL](postGresAdvCommands.html). and [Pro SQL](postGresProCommands.html)
+   3. [Jupyter](jupyterLabCommands.html)
+   4. [vi editor](viCommands.html)
+   5. [Tunneling](sshAdvCommands.html)
+   6. [Hadoop](hadoop.html)
+   7. [Conda](condaCommands.html)
+   8. [Tunneling](sshAdvCommands.html)
+
+## Advanced (only for System Administrators)
 
 1. [Setting up a Ubuntu Server](ubuntu.html)
 
@@ -27,27 +41,4 @@
 7. [Setting up LDAP Client](ldap.html)
 
     __Topics:__ Setting up of LDAP client 
-
-
-## Tutorials
-
-### Linux
-1. [Basic](linuxCommands.html)
-2. [Advanced](linuxAdvCommands.html)
-3. [Pro](linuxProCommands.html)
-
-### PostGres
-
-1. [Basic](postGresCommands.html)
-2. [Advanced](postGresAdvCommands.html)
-3. [Pro](postGresProCommands.html)
-
-### Others
-
-1. [Jupyter](jupyterLabCommands.html) 
-2. [Vi editor](viCommands.html)
-3. [Hadoop](hadoop.html)
-4. [Conda](condaCommands.html)
-5. [Tunneling](sshAdvCommands.html)
-6. [Starting JupyterHub](startJupyterHub.html)
-
+8. [Starting JupyterHub](startJupyterHub.html)

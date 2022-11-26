@@ -1,6 +1,5 @@
 echo "Installing R"
-sudo apt install -y dirmngr gnupg apt-transport-https ca-certificates software-properties-common # Installing R
-sudo apt install -y  r-base build-essential
+sudo apt install -y dirmngr gnupg apt-transport-https ca-certificates software-properties-common r-base build-essential
 
 
 echo "Installing Julia"
