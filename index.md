@@ -3,18 +3,14 @@
 ## Basics
 1. [Computing Environment in RAGE's lab](compute.html)
 2. [Methods to access the Severs](access.html)
-3. [Setting the user accounts in the servers](settingUserAccounts.html)
+3. [Setting an user account in the servers](settingUserAccounts.html)
 4. Tutorials
    1. Linux: [Basic commands](linuxCommands.html). [Advanced commands](linuxAdvCommands.html), and [Pro commands](linuxProCommands.html)
    2. PostGres: [Basic SQL](postGresCommands.html), [Advanced SQL](postGresAdvCommands.html). and [Pro SQL](postGresProCommands.html)
    3. [Jupyter](jupyterLabCommands.html)
-   4. [vi editor](viCommands.html)
-   5. [Tunneling](sshAdvCommands.html)
-   6. [Hadoop](hadoop.html)
-   7. [Conda](condaCommands.html)
-   8. [Tunneling](sshAdvCommands.html)
+   4. [vi editor](viCommands.html) 
 
-## Advanced (only for System Administrators)
+## Advanced 
 
 1. [Setting up a Ubuntu Server](ubuntu.html)
 
@@ -42,3 +38,7 @@
 
     __Topics:__ Setting up of LDAP client 
 8. [Starting JupyterHub](startJupyterHub.html)
+
+9. [Server Maintenance](serverMaintain.html) 
+
+    __Topics:__ Removing a repository from apt

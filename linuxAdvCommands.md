@@ -79,5 +79,6 @@ Monitor the processes running on the server machine using the below command:
 
     top
 
-Press Control + C to quit   
+Press Control + C to quit.
+Use 'kill' command to stop any unwanted process. 
 
