@@ -26,7 +26,7 @@ Type the following in the file
                     addresses: [163.143.1.100]
 
 Save the file and exit. Next, type the following command on the terminal:
-    
+
     sudo netplan apply
 
 ## 2) Installation of Remote Desktop
@@ -81,7 +81,7 @@ Save the file and exit. Next, type the following command on the terminal:
     wget https://udayrage.github.io/scripts/antiVirusOpenSSLTex.sh
     sh antiVirusOpenSSLTex.sh
 
-## 6) Allowing a program to utilize more memory 
+## 6) Allowing a program to utilize more memory
 
     echo 1 | sudo tee /proc/sys/vm/overcommit_memory
 
