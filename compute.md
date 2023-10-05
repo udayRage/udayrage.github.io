@@ -53,7 +53,7 @@ handle GPU-centric operations. The details of both the servers are as follows:
         163.143.165.136
         
 
-2. skytree1.u-aizu.ac.jp (Only CPU)
+2. skytree2.u-aizu.ac.jp (Only CPU)
 
         163.143.165.141
     

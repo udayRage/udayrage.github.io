@@ -3,7 +3,7 @@
 ## Basics
 1. [Computing Environment in RAGE's lab](compute.html)
 2. [Methods to access the Severs](access.html)
-3. [Setting an user account in the servers](settingUserAccounts.html)
+#3. [Setting an user account in the servers](settingUserAccounts.html)
 4. Tutorials
    1. Linux: [Basic commands](linuxCommands.html). [Advanced commands](linuxAdvCommands.html), and [Pro commands](linuxProCommands.html)
    2. PostGres: [Basic SQL](postGresCommands.html), [Advanced SQL](postGresAdvCommands.html). and [Pro SQL](postGresProCommands.html)
