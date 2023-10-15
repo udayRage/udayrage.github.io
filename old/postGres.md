@@ -2,12 +2,8 @@
 
 ## 1. Installation of PostGres and PostGIS
 
-    wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-    echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" |sudo tee  /etc/apt/sources.list.d/pgdg.list
-    sudo apt update
-    sudo apt install -y postgresql-13 postgresql-client-13 postgis postgresql-13-postgis-3
-    sudo systemctl restart postgresql
-    sudo systemctl status postgresql
+    wget https://udayrage.github.io/scripts/postgres.sh
+    sh postgres.sh
 
 ## 2. Setting up password for the postgres user
 
@@ -54,8 +50,8 @@ Create a file testDBConnection.py, and copy paste the below code
         connection = psycopg2.connect(user="USER_NAME",      # Set your user name
                                       password="PASSWORD",   # Set your password
                                       host="IPADDRESS",      # Set ipaddress   
-                                      port="PORT",           #5432 is default port 
-                                      database="DATABASE_NAME")
+                                      port="5432",
+                                      database="kaguya")
 
         # Create a cursor to perform database operations
         cursor = connection.cursor()
