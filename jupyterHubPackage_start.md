@@ -58,8 +58,21 @@ Check the last line displayed after executing above command and execute it.
 
         conda activate jupyterHub
         conda update --all
-        conda install -c conda-forge tensorflow
-    
-        or
 
+        conda install -c conda-forge tensorflow
+        or
         conda install tensorflow=2.12.*=gpu_*
+
+## 4. Installation of Scikit (sklearn)
+
+        conda install -c conda-forge scikit-learn
+
+## 5. Installation of Pytorch
+
+        conda install pytorch::pytorch
+        or
+        conda install conda-forge::pytorch-gpu
+
+## 6. Installation of PAMI
+
+        pip install pami
