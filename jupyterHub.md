@@ -2,10 +2,10 @@
 
 ## 1. Create and login as a new sudo user
 
-    sudo useradd -m -s /bin/bash -G sudo jupyterHub
-    sudo passwd jupyterHub
+    sudo useradd -m -s /bin/bash -G sudo jupyter
+    sudo passwd jupyter
 
-    su - jupyterHub
+    su - jupyter
 
 
 ## 2. Installation of NodeJS and NPM
