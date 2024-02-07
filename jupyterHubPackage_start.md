@@ -54,25 +54,59 @@ Check the last line displayed after executing above command and execute it.
         sudo apt-get update
         sudo apt-get install libcudnn8
 
-## 3. Installation of TensorFlow
+## 3. Installation of TensorFlow, Keras, and JAX
 
         conda activate jupyterHub
+
+        conda update -n base -c defaults conda
+        or
         conda update --all
 
         conda install -c conda-forge tensorflow
         or
         conda install tensorflow=2.12.*=gpu_*
 
+        
+        conda install keras
+
+
+        #The below package is not advised as it may create errors in tensorflow  
+        pip install --upgrade "jax[cpu]"     #CPU only
+
+
+        
+
 ## 4. Installation of Scikit (sklearn)
 
         conda install -c conda-forge scikit-learn
 
-## 5. Installation of Pytorch
+## 5. Installation of Dask, Pytorch and Prophet
+
+        conda install -c rapidsai -c conda-forge -c nvidia dask-cuda cuda-version=12.3
 
         conda install pytorch::pytorch
         or
         conda install conda-forge::pytorch-gpu
 
-## 6. Installation of PAMI
+        conda install -c conda-forge prophet
+
+## 6. Installation of GDAL
+
+        conda install -c conda-forge gdal
+
+## 7. Installation of PAMI and other packages
 
         pip install pami
+
+        pip install autots
+
+        pip install auto-ts
+
+        pip install darts
+
+        pip install etna[all]
+
+        pip install greykite
+
+        pip install kats
+
