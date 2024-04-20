@@ -2,10 +2,10 @@
 
 ## 1. Create and login as a new sudo user
 
-    sudo useradd -m -s /bin/bash -G sudo jupyterHub
-    sudo passwd jupyterHub
+    sudo useradd -m -s /bin/bash -G sudo jupyter
+    sudo passwd jupyter
 
-    su - jupyterHub
+    su - jupyter
 
 
 ## 2. Installation of NodeJS and NPM
@@ -102,7 +102,14 @@ Add the below provided lines. Change the ipaddress of the machine.
 
 Save the above file and exit.
 
+Open the ports:
+
+    sudo ufw allow 8000/tcp
+    sudo ufw reload
+
 ## 8. Checking the jupyterHub server
+
+    sudo chmod -R 755 .
 
     sudo ls #enter the password
 

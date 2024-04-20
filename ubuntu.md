@@ -111,8 +111,7 @@ Now, login remotely into the server using ssh, and perform any of the below step
     sudo  apt-get  install -y  texlive-xetex texlive-full texstudio texmaker texlive-latex-extra pandoc curl  libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev python3-pip openssl libssl-dev build-essential libcurl4-gnutls-dev libxml2-dev tasksel lightdm clamav clamav-daemon mailutils gnupg2  vim bash-completion
 
     #Setting up Python Libraries
-    sudo pip install click
-    sudo pip install mitmproxy
+    pip install click mitmproxy
     
     #Setting up anti-virus.
     sudo systemctl stop clamav-freshclam
@@ -123,7 +122,7 @@ Now, login remotely into the server using ssh, and perform any of the below step
     sudo systemctl enable clamav-freshclam
     sudo systemctl status clamav-freshclam
     
-    #Setting up the tasksel GUI. Choose 'Ubuntu Desktop'. Press any key to continue... 
+    #Setting up the tasksel GUI. Choose 'Ubuntu/Debian Desktop'. Press any key to continue... 
     sudo  tasksel
     
     #Basic libraries have been installed. Rebooting the server
@@ -135,6 +134,6 @@ Now, login remotely into the server using ssh, and perform any of the below step
 
 ## 8) Recording the history of each user's commands with a timestamp
 
-    vi /etc/profile
+    sudo vi /etc/profile
     export HISTTIMEFORMAT="%F %T " 
     #save and exit
