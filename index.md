@@ -62,16 +62,19 @@
 
     __Topics:__ Setting up of LDAP client 
 
-7.   [Creating a python repository in PYPI](pypi.html)
+7. [Creating a python repository in PYPI](pypi.html)
 
     __Topics:__ Installing necessary packages, writing codes, and running them.
 
 8. Updating packages in Conda
 
+         conda update --name base conda
+
          conda activate environmentName
          #conda activate jupyterHub
 
          conda update all -y #to update all packages in an environment
+         #If you get any eror 
 
          conda update packageName -y
          #conda update notebook numpy pandas scikit-learn -y
@@ -83,4 +86,6 @@
     __Topics:__ Installing geoAnalytics package
 
 10. [Resizing the disk using LVM](diskResize.html)
+
+11. [Hadoop installation](hadoop.md) 
 

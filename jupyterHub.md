@@ -1,4 +1,4 @@
-# [Main Menu](index.html)
+`# [Main Menu](index.html)`
 
 ## 1. Create and login as a new sudo user
 
