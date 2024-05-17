@@ -17,7 +17,7 @@
 4. Jupyter Notebook
 
    - [GUI](https://docs.sevenbridges.com/docs/editor-quick-reference)
-   - [Short cuts](https://udayrage.github.io/jupyterLabCommands.html)
+   - [Shortcuts](https://udayrage.github.io/jupyterLabCommands.html)
    - [Basic Jupyter tutorial](https://towardsdatascience.com/a-beginners-tutorial-to-jupyter-notebooks-1b2f8705888a)
    - [Interactive widgets](https://towardsdatascience.com/bring-your-jupyter-notebook-to-life-with-interactive-widgets-bc12e03f0916)
    - [Cheat sheet**](https://www.edureka.co/blog/cheatsheets/jupyter-notebook-cheat-sheet)
@@ -80,6 +80,9 @@
          #conda update notebook numpy pandas scikit-learn -y
 
          conda update conda #to update conda
+
+         #updating all python packages using pip 
+         pip --disable-pip-version-check list --outdated --format=json | python -c "import json, sys; print('\n'.join([x['name'] for x in json.load(sys.stdin)]))" | xargs -n1 pip install -U
 
 9. [GeoAnalytics package](geoAnalytics.html)
 
