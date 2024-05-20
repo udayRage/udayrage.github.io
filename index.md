@@ -1,6 +1,20 @@
+# Welcome to RAGE Uday Kiran's Lab
 
-## Important Links
-## Tutorials
+## __Contents:__
+
+- [Accessing the Lab](#1-accessing-the-lab-infrastructure)
+- [Tutorials](#2-tutorials)
+- [Server Administration](#3-server-administration)
+
+## 1. Accessing the Lab Infrastructure
+
+- [User account creation](accountCreation.html)
+- [Wi-Fi Connection](wifiSetup.html)
+- [Code to supress GPU messages](supressGPUMsgs.html)
+
+___
+
+## 2. Tutorials
 1. Linux
    1. [Basic commands](linuxCommands.html)
    2. [Advanced commands](linuxAdvCommands.html) and
@@ -25,9 +39,9 @@
    
 5. [Google Colab](https://www.tutorialspoint.com/google_colab/index.htm)
 
+---
 
-
-## Server administration
+## 3. Server administration
 
 1. [Setting up a Ubuntu Server](ubuntu.html)
 
@@ -92,4 +106,4 @@
 
 11. [Hadoop installation](hadoop.md) 
 
-12. [Account creation in Rage's Lab](accountCreation.html)
+
