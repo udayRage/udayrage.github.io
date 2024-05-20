@@ -84,3 +84,5 @@
 
 10. [Resizing the disk using LVM](diskResize.html)
 
+11. [Account Creation in Rage's Lab](accountCreation.html)
+

@@ -27,7 +27,7 @@ Type the following in the file
                     addresses: [163.143.1.100]
 
 Save the file and exit (press Control + X, and Y). Next, type the following command on the terminal:
-    
+
     sudo netplan apply
 
 ## 2) Setting up SSH so that we can do configurations easily
@@ -43,11 +43,9 @@ Save the file and exit (press Control + X, and Y). Next, type the following comm
     sudo ufw allow ssh    
     sudo ufw reload
 
-    
 Now, login remotely into the server using ssh, and perform any of the below steps.
 
 ## 3) Installation of Remote Desktop
-
 
 [Click here for the detailed instructions](https://tecadmin.net/how-to-install-xrdp-on-ubuntu-20-04/)
 
@@ -101,7 +99,6 @@ Now, login remotely into the server using ssh, and perform any of the below step
     #Save the file and exit
     
     sudo /etc/init.d/ssh restart
- 
 
 ## 6) Installation of GUI, Anti-virus, OpenSSH, Tex, CURL and Other Python Libraries
 
@@ -129,7 +126,7 @@ Now, login remotely into the server using ssh, and perform any of the below step
     #Basic libraries have been installed. Rebooting the server
     sudo reboot
 
-## 7) Allowing a program to utilize more memory 
+## 7) Allowing a program to utilize more memory
 
     echo 1 | sudo tee /proc/sys/vm/overcommit_memory
 
