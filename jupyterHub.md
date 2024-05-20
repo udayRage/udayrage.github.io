@@ -1,4 +1,4 @@
-# [Main Menu](index.html)
+`# [Main Menu](index.html)`
 
 ## 1. Create and login as a new sudo user
 
@@ -102,7 +102,14 @@ Add the below provided lines. Change the ipaddress of the machine.
 
 Save the above file and exit.
 
+Open the ports:
+
+    sudo ufw allow 8000/tcp
+    sudo ufw reload
+
 ## 8. Checking the jupyterHub server
+
+    sudo chmod -R 755 .
 
     sudo ls #enter the password
 
@@ -157,6 +164,10 @@ Restart Jupyterhub, login, and start the terminal. In the terminal, type the fol
     #GPU version
     pip3 install torch torchvision torchaudio
     
+
+## 13. Upgrading all Python libraries in a (virtual) machine
+
+    pip --disable-pip-version-check list --outdated --format=json | python -c "import json, sys; print('\n'.join([x['name'] for x in json.load(sys.stdin)]))" | xargs -n1 pip install -U
 
 
 
