@@ -3,9 +3,9 @@
 ## 1. Servers' info
 
 __Computational purposes:__
-- Skytree server (CPU only, default): http://163.143.165.141:8000/hub/login
-- Khalifa server-1 (GPU server-1): http://163.143.165.143:8000/hub/login
-- Khalifa server-2 (GPU-server-2): http://163.143.165.140:8000/hub/login
+- Skytree server (CPU only, default): [http://163.143.165.141:8000/hub/login](http://163.143.165.141:8000/hub/login)
+- Khalifa server-1 (GPU server-1): [http://163.143.165.143:8000/hub/login](http://163.143.165.143:8000/hub/login)
+- Khalifa server-2 (GPU-server-2): [http://163.143.165.140:8000/hub/login](http://163.143.165.140:8000/hub/login)
 
 __Storage purposes:__
 - Storage server (10TB): http://163.143.165.145:8000/hub/login
