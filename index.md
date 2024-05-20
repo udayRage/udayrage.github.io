@@ -92,3 +92,4 @@
 
 11. [Hadoop installation](hadoop.md) 
 
+12. [Account creation in Rage's Lab](accountCreation.html)
