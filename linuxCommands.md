@@ -41,6 +41,7 @@
     !!      #Shortcut to execute the previous command
     !number #Executes the command having the same number in the history. E.g., !109 executes the command 109 in the history.
     kill -9 pid #Kills the process whose id is -9. 
+    wget URL   #downloads the file from the provided URL
     
 #### Symbolic links to files and folders
 

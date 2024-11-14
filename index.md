@@ -5,6 +5,7 @@
 - [Accessing the Lab](#1-accessing-the-lab-infrastructure)
 - [Tutorials](#2-tutorials)
 - [Server Administration](#3-server-administration)
+- [Old web page](./old/index.md)
 
 ## 1. Accessing the Lab Infrastructure
 
