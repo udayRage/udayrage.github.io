@@ -33,8 +33,7 @@
     wget https://julialang-s3.julialang.org/bin/linux/x64/1.8/julia-1.8.0-linux-x86_64.tar.gz
     tar -xvzf julia-1.8.0-linux-x86_64.tar.gz
     sudo cp -r julia-1.8.0 /opt/
-    sudo ln -s /opt/julia-1.8.0/bin/julia /usr/local/bin/Julia
-    
+    sudo ln -s /opt/julia-1.8.0/bin/julia /usr/local/bin/julia
 
     julia  #to enter into julia interface.
     exit   #to edit from julia
@@ -46,10 +45,10 @@
     sudo passwd jupyter
     su - jupyter
 
-    wget https://repo.anaconda.com/archive/Anaconda3-2023.07-2-Linux-x86_64.sh
+    wget https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh
 
-    bash Anaconda3-2023.07-2-Linux-x86_64.sh
-    #Accept the terms and press Y button whenever asked.
+    bash Anaconda3-2024.10-1-Linux-x86_64.sh
+    #Accept the terms and press Y (or yes) button whenever asked.
 
     source ~/.bashrc
     conda config --set auto_activate_base false 
@@ -70,6 +69,9 @@
     conda install notebook -y
 
     pip install configurable-http-proxy #sudo npm install -g configurable-http-proxy (for backup)
+
+    conda install -c conda-forge jupyter_contrib_nbextensions
+    conda install -c conda-forge jupyter_nbextensions_configurator
         
 ## 6. Installing Pandoc and playwright for chromium
 
@@ -77,6 +79,8 @@
 
     conda config --add channels conda-forge
     conda config --add channels microsoft
+
+    conda install sidecar
     conda install playwright -y
     playwright install-deps
     playwright install  #playwright install chromium (backup command)
@@ -121,6 +125,8 @@ Check whether server is working properly by accessing the jupyterHub in browser.
 
 ## 9. Installing Plugins
 
+    pip install ipywidgets
+    pip install --upgrade pyee
     pip install nbconvert pyppeteer
     pyppeteer-install
     pip install nbconvert[webpdf]

@@ -14,6 +14,8 @@ In the jupyterHub conda environment, perform the below steps.
     sudo apt-get install -y cdo nco gdal-bin libgdal-dev
     
     
+    pip install --global-option=build_ext --global-option="-I/usr/include/gdal" GDAL==`gdal-config --version`
+
 
     python -m pip install --upgrade pip setuptools wheel
     python -m pip install --upgrade gdal
