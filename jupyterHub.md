@@ -41,8 +41,7 @@
 
 ## 4. Installing Anaconda
 
-    sudo apt-get install libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6 -y
-
+    
     sudo useradd -m -s /bin/bash -G sudo jupyter
     sudo passwd jupyter
     su - jupyter
@@ -79,6 +78,7 @@
     conda config --add channels conda-forge
     conda config --add channels microsoft
     conda install playwright -y
+    playwright install-deps
     playwright install  #playwright install chromium (backup command)
 
 ## 7. Creating configuration file for jupyter notebook
@@ -91,6 +91,7 @@
 
 Add the below provided lines. Change the ipaddress of the machine.
 
+    c.Authenticator.allow_all = True
     c.PAMAuthenticator.open_sessions = False
     c.JupyterHub.bind_url = 'http://163.143.87.224:8000'   #REPLACE the IPADDRESS
     c.Spawner.cmd = ['/home/jupyter/anaconda3/envs/jupyterHub/bin/jupyterhub-singleuser']
