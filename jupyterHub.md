@@ -178,9 +178,40 @@ Restart Jupyterhub, login, and start the terminal. In the terminal, type the fol
 
 
 
+## 14. Startup Script
 
+     sudo vi /usr/lib/systemd/system/jupyterhub.service
+
+Copy and paste the below lines in the file
+
+    [Unit]
+    Description=JupyterHub
     
+    [Service]
+    Type=simple
+    PIDFile=/run/jupyterhub.pid
+    # Step 1 and Step 2 details are here..
+    # ------------------------------------
+    ExecStart=jupyterhub -f /home/jupyter/jupyterhub_config.py
+    #User=root
+    #Group=root
+    #WorkingDirectory=/home/jupter
+    Restart=always
+    RestartSec=10
+    #KillMode=mixed
+    
+    [Install]
+    WantedBy=multi-user.target
+    
+Save and exit. 
+Execute the below commands on the terminal
 
+    sudo systemctl enable jupyterhub.service
+    sudo systemctl daemon-reload
+    sudo systemctl restart jupyterhub.service
+    sudo reboot
+
+Wait for sometime. Open the browser and check the jupyterHub by logging into it.
     
     
 
