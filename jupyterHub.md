@@ -1,6 +1,8 @@
 `# [Main Menu](index.html)`
 
-## 1. Create and login as a new sudo user
+## 1. Create and login as a new sudo user (Optional)
+
+__Jupyter account need not be a sudo user.__
 
     sudo useradd -m -s /bin/bash -G sudo jupyter
     sudo passwd jupyter
@@ -13,6 +15,8 @@
  
     sudo apt-get install -y fuse lvm2 vim plocate curl openssh-server dirmngr gnupg apt-transport-https ca-certificates software-properties-common r-base build-essential libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6 gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils
   
+    sudo  apt-get  install -y  wget texlive-xetex texlive-full texstudio texmaker texlive-latex-extra pandoc libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev python3-pip openssl libssl-dev build-essential gnupg2 vim bash-completion
+
     sudo mkdir -p /etc/apt/keyrings
     curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
     
@@ -38,10 +42,13 @@
     julia  #to enter into julia interface.
     exit   #to edit from julia
 
+
+[Installing GPU Drivers and ML Packages](jupyterHubPackage_start.md)
+
 ## 4. Installing Anaconda
 
     
-    sudo useradd -m -s /bin/bash -G sudo jupyter
+    sudo useradd -m -s /bin/bash -G jupyter
     sudo passwd jupyter
     su - jupyter
 
@@ -75,7 +82,6 @@
         
 ## 6. Installing Pandoc and playwright for chromium
 
-    sudo apt-get install pandoc
 
     conda config --add channels conda-forge
     conda config --add channels microsoft

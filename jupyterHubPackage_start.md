@@ -9,8 +9,10 @@
         sudo vi /etc/modprobe.d/blacklist-nvidia-nouveau.conf
 
         #paste the below provided lines
+
         blacklist nouveau
         options nouveau modeset=0
+
         #save and exit
 
         sudo update-initramfs -u
