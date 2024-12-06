@@ -9,8 +9,8 @@ Installing mainline
 ```bash
 sudo add-apt-repository ppa:cappelikan/ppa
 sudo apt update
-sudo apt install mainline
-mainline --install 6.2
+sudo apt install mainline -y
+sudo mainline install 6.2
 ```
 Reboot the Server
 ```bash
