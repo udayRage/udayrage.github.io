@@ -6,18 +6,18 @@
 
 Installing mainline 
 
-```console
+```bash
 sudo add-apt-repository ppa:cappelikan/ppa
 sudo apt update
 sudo apt install mainline
 mainline --install 6.2
 ```
 Reboot the Server
-```console
+```bash
 sudo reboot
 ```
 Remove any existing Nvidia installations
-```console
+```bash
 sudo apt install gcc
 sudo apt-get remove --purge '^nvidia-.*'
 sudo apt-get autoremove
@@ -25,20 +25,20 @@ sudo apt-get autoremove
 
 ## Disabling the default NVidia libraries
 Open the file
-```console
+```bash
 sudo vi /etc/modprobe.d/blacklist-nvidia-nouveau.conf
 ```
 Insert these lines
-```console
+```bash
 blacklist nouveau
 options nouveau modeset=0
 ```
 Save and exit. Regenerate the kernel initramfs.
-```console
+```bash
 sudo update-initramfs -u
 ```
 Check the graphics card by executing the following command:
-```console
+```bash
 sudo lshw -C display
 ```
 Your graphic cards should be shown in the output generated.
@@ -48,7 +48,7 @@ Your graphic cards should be shown in the output generated.
 1. Visit the following URL: [https://developer.nvidia.com/cuda-12-2-0-download-archive](https://developer.nvidia.com/cuda-12-2-0-download-archive)
 2. Choose your configurations based on your Operating System. Please Choose X86 architecture. 
 3. Nvidia will provide you a set of commands to execute. Please execute them one after another by copying and pasting them. __An example has been provided below:__
-```console
+```bash
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-ubuntu2204.pin
 sudo mv cuda-ubuntu2204.pin /etc/apt/preferences.d/cuda-repository-pin-600
 wget https://developer.download.nvidia.com/compute/cuda/12.2.0/local_installers/cuda-repo-ubuntu2204-12-2-local_12.2.0-535.54.03-1_amd64.deb
@@ -59,7 +59,7 @@ sudo apt -y install cuda
 sudo reboot 
 ```
 4. After rebooting the server, execute the following command:
-```console
+```bash
 nvidia-smi
 ```
 You should now see the list of GPUs attached to your machine.
@@ -69,7 +69,7 @@ You should now see the list of GPUs attached to your machine.
 1. Using your Nvidia account, visit the following URL: [https://developer.nvidia.com/rdp/cudnn-archive](https://developer.nvidia.com/rdp/cudnn-archive)
 2. Download the local installer by choosing the latest version based on your operating system.
 3. Execute the following commands:
-```console
+```bash
 sudo dpkg -i cudnn-local-repo-ubuntu2204-8.9.7.29_1.0-1_amd64.deb
 sudo apt-get update
 sudo apt-get install libcudnn8 libcudnn8-dev 
@@ -77,34 +77,34 @@ sudo apt-get install libcudnn8 libcudnn8-dev
 ## Setting a Virtual Environment using Conda
 
 1. Download the latest version of Anaconda.
-```console
+```bash
 wget https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh
 ```
 2. Install the conda
-```console
+```bash
 bash Anaconda3-2024.10-1-Linux-x86_64.sh
 ```
  __Note:__ Accept the terms and conditions. When asked for Yes/No, type 'Yes'.
 
 3. Execute the below provided commands
-```console
+```bash
  source .bashrc
  conda config --set auto_activate_base false 
  ```
 4. Check the Python Version
-```console
+```bash
 python -V
 ```
 5. Tensorflow GPU currently works better if your Python Version is 3.10. Thus, let us create virtual environment with Python 3.10
-```console
+```bash
 conda create --name jupyterHub python=3.10
  ```
 6. Enter into that Virtual Environment
-```console
+```bash
 conda activate jupyterHub
 ```
 7. Execute the following commands
-```console
+```bash
 pip install --upgrade pip
 conda config --add channels conda-forge
 conda config --add channels microsoft
@@ -113,14 +113,14 @@ conda config --add channels microsoft
 ## Installing and Setting Up TensorFlow GPU
 
 1. Install tensorflow-gpu
-```console
+```bash
 conda install anaconda::tensorflow-gpu
 ```
 2. Check the correctness of installed TensorFlow-gpu by executing the following commands:
 
    - Approach-1
 
-   ```console
+   ```bash
    python3
    ```
    ```PYTHON
@@ -130,13 +130,13 @@ conda install anaconda::tensorflow-gpu
 
    - Approach-2
    
-   ```console
+   ```bash
    python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
    ```
          
    
 2. Install Keras, PyTorch, and other libraries
-```console
+```bash
 conda install conda-forge::keras -y
 conda install -c conda-forge scikit-learn -y
 conda install -c rapidsai -c conda-forge -c nvidia dask-cuda cuda-version=12.3 -y
@@ -146,13 +146,13 @@ conda install conda-forge::s3fs -y
 conda install conda-forge::pytorch-gpu
 ```
 
-```console
+```bash
 python -m pip install torch torch-tensorrt tensorrt pami
 ```
 
 ## Installation of JupterHub
 Execute the following commands by staying the `jupyterHub` environment created in the previous steps. 
-```console
+```bash
 conda activate jupyterHub
 pip install --upgrade pip
 conda install -c conda-forge jupyterlab jupyterhub -y
@@ -169,24 +169,24 @@ pip install autots auto-ts darts etna[all] greykite kats
 
 ## Setting up the JupyterHub
 Come to the home directory.
-```console
+```bash
 cd ~
 ```
 Setup symbolic links to jupyterHub and jupyterNotebook to access them directly from the terminal.
-```console
+```bash
 sudo ln -s ~/anaconda3/envs/jupyterHub/bin/jupyter /usr/bin/jupyter
 sudo ln -s ~/anaconda3/envs/jupyterHub/bin/jupyterhub /usr/bin/jupyterhub
 ```
 Create the jupyterHub default configuration file
-```console
+```bash
 jupyterhub --generate-config -f ~/jupyterhub_config.py
 ```
 Open the jupyterHub configuration file
-```console
+```bash
 vi ~/jupyterhub_config.py
 ```
 Add the following text in the file
-```console
+```bash
 c.Authenticator.allow_all = True
 c.PAMAuthenticator.open_sessions = False
 c.JupyterHub.bind_url = 'http://163.143.87.224:80'   #REPLACE the IPADDRESS
@@ -199,11 +199,11 @@ c.Spawner.cmd=["/home/jupyter/anaconda3/envs/jupyterHub/bin/jupyter-labhub"]
 __Note:__ Change the _ipaddress_ of the variable `c.JupyterHub.bind_url` 
 
 Create a startup file that starts jupyterHub right after the server starts
-```console
+```bash
 sudo vi /usr/lib/systemd/system/jupyterhub.service
 ```
 Copy and Paste the below-provided text:
-```console
+```bash
 [Unit]
 Description=JupyterHub
 
@@ -226,16 +226,16 @@ WantedBy=multi-user.target
 Save and exit.
 
 Execute the below commands on the terminal
-```console
+```bash
 sudo systemctl enable jupyterhub.service
 sudo systemctl daemon-reload
 sudo systemctl restart jupyterhub.service
 ```
 Change the home directory permissions
-```console
+```bash
 sudo chmod -R 755 .
 ```
 Reboot the system
-```console
+```bash
 sudo reboot
 ```
