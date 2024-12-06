@@ -149,9 +149,14 @@ sudo  apt-get  update && sudo  apt-get  upgrade -y
 ```bash
 sudo  apt-get  install -y  texlive-xetex texlive-full texstudio texmaker texlive-latex-extra pandoc curl  libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev python3-pip openssl libssl-dev build-essential libcurl4-gnutls-dev libxml2-dev tasksel lightdm clamav clamav-daemon mailutils gnupg2  vim bash-completion
 ```
-Choose `lightdm` option when asked.
+Choose `lightdm` option when asked. May take 1 hour to install of the above packages.
+
+Once you see this text `Pregenerating ConTeXt MarkIV format. This may take some time...`
+Keep pressing `Enter` button until you see new lines on the screen.
 
 
+Next, once you see this text `Building format(s) --all.
+	This may take some time...` wait for sometime and see whether it is ending or not. If you feel screen got hanged, keep on pressing `Enter` button. 
 ```bash
 pip install click mitmproxy
 ```
@@ -167,7 +172,8 @@ sudo systemctl start clamav-freshclam
 sudo systemctl enable clamav-freshclam
 sudo systemctl status clamav-freshclam
 ```
-  
+Press `Q` button.
+
 Setting up the tasksel GUI. Choose 'Ubuntu/Debian Desktop'. Press any key to continue... 
 ```bash
 sudo  tasksel
