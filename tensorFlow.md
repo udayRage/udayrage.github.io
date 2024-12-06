@@ -74,6 +74,23 @@ sudo dpkg -i cudnn-local-repo-ubuntu2204-8.9.7.29_1.0-1_amd64.deb
 sudo apt-get update
 sudo apt-get install libcudnn8 libcudnn8-dev 
 ```
+## Creation and login as a new sudo user (Optional)
+
+__Jupyter account need not be a sudo user.__
+
+
+```bash
+sudo useradd -m -s /bin/bash -G sudo jupyter
+```
+
+```bash
+sudo passwd jupyter
+```
+
+```bash
+su - jupyter
+```
+
 ## Setting a Virtual Environment using Conda
 
 1. Download the latest version of Anaconda.

@@ -149,6 +149,8 @@ sudo  apt-get  update && sudo  apt-get  upgrade -y
 ```bash
 sudo  apt-get  install -y  texlive-xetex texlive-full texstudio texmaker texlive-latex-extra pandoc curl  libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev python3-pip openssl libssl-dev build-essential libcurl4-gnutls-dev libxml2-dev tasksel lightdm clamav clamav-daemon mailutils gnupg2  vim bash-completion
 ```
+Choose `lightdm` option when asked.
+
 
 ```bash
 pip install click mitmproxy
