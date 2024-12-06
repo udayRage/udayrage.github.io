@@ -54,8 +54,10 @@ sudo mv cuda-ubuntu2204.pin /etc/apt/preferences.d/cuda-repository-pin-600
 wget https://developer.download.nvidia.com/compute/cuda/12.2.0/local_installers/cuda-repo-ubuntu2204-12-2-local_12.2.0-535.54.03-1_amd64.deb
 sudo dpkg -i cuda-repo-ubuntu2204-12-2-local_12.2.0-535.54.03-1_amd64.deb 
 sudo cp /var/cuda-repo-ubuntu2204-12-2-local/cuda-*-keyring.gpg /usr/share/keyrings/
-sudo apt update
-sudo apt -y install cuda 
+sudo apt update && sudo apt -y install cuda 
+```
+
+```bash
 sudo reboot 
 ```
 4. After rebooting the server, execute the following command:
@@ -74,13 +76,10 @@ wget -nc https://www.dropbox.com/scl/fi/ck7akyej5l0onopvmvecf/cudnn-local-repo-u
 ```
 ```bash
 sudo dpkg -i cudnn-local-repo-ubuntu2204-8.9.7.29_1.0-1_amd64.deb
-sudo apt-get update
-sudo apt-get install libcudnn8 libcudnn8-dev 
+sudo cp /var/cudnn-local-repo-ubuntu2204-8.9.7.29/cudnn-local-08A7D361-keyring.gpg /usr/share/keyrings/
+sudo apt update && sudo apt install libcudnn8 libcudnn8-dev -y 
 ```
-## Creation and login as a new sudo user (Optional)
-
-__Jupyter account need not be a sudo user.__
-
+## Creation and login as a new sudo use`r (Optional)
 
 ```bash
 sudo useradd -m -s /bin/bash -G sudo jupyter
@@ -98,13 +97,17 @@ su - jupyter
 
 1. Download the latest version of Anaconda.
 ```bash
-wget https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh
+wget -nc https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh
 ```
 2. Install the conda
 ```bash
 bash Anaconda3-2024.10-1-Linux-x86_64.sh
 ```
- __Note:__ Accept the terms and conditions. When asked for Yes/No, type 'Yes'.
+
+- Press `Enter`
+- Press `Spacebar` until you see `license terms`
+- Type `Yes` and press `Enter`
+- Press `Enter`
 
 3. Execute the below provided commands
 ```bash
