@@ -70,6 +70,9 @@ You should now see the list of GPUs attached to your machine.
 2. Download the local installer by choosing the latest version based on your operating system.
 3. Execute the following commands:
 ```bash
+wget -nc https://www.dropbox.com/scl/fi/ck7akyej5l0onopvmvecf/cudnn-local-repo-ubuntu2204-8.9.7.29_1.0-1_amd64.deb
+```
+```bash
 sudo dpkg -i cudnn-local-repo-ubuntu2204-8.9.7.29_1.0-1_amd64.deb
 sudo apt-get update
 sudo apt-get install libcudnn8 libcudnn8-dev 

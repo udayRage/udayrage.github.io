@@ -179,9 +179,7 @@ Setting up the tasksel GUI. Choose 'Ubuntu/Debian Desktop'. Press any key to con
 sudo  tasksel
 ```
     
-```bash
-sudo reboot
-```
+
 
 ## 7) Allowing a program to utilize more memory
 ```bash
@@ -198,4 +196,8 @@ sudo vi /etc/profile
 ```vi
 export HISTTIMEFORMAT="%F %T " 
 ```
-     
+Save the file and exit. 
+
+```bash
+sudo reboot
+```
