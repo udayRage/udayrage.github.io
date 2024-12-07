@@ -160,7 +160,7 @@ python -V
 ```
 5. Tensorflow GPU currently works better if your Python Version is 3.10. Thus, let us create virtual environment with Python 3.10
 ```bash
-conda create --name jupyterHub python=3.12
+conda create --name jupyterHub python=3.10
  ```
 6. Enter into that Virtual Environment
 ```bash
@@ -216,12 +216,9 @@ conda install dask distributed -c conda-forge -y
 conda install conda-forge::s3fs -y
 conda install conda-forge::pytorch-gpu -y
 conda install cmake zeromq cppzmq OpenSSL xtl nlohmann_json -c conda-forge -y
-```
 
-```bash
 python -m pip install torch torch-tensorrt tensorrt pami
-
-pip install matlab_kernels
+#pip install matlab_kernels
 ```
 
 ## Installation of JupterHub
@@ -248,9 +245,19 @@ pip install jupyter_contrib_nbextensions
 conda install -c conda-forge jupyterlab-spellchecker -y
 conda install xeus-python notebook -c conda-forge -y
 
-conda install conda-forge::jupyterlab-spreadsheet-editor
-conda install -c conda-forge jupyterlab_vim
-conda install -c conda-forge jupyterlab jupyterlab-git
+conda install conda-forge::jupyterlab-spreadsheet-editor -y
+conda install -c conda-forge jupyterlab_vim -y 
+conda install -c conda-forge jupyterlab jupyterlab-git -y
+conda install jupyter anywidget -y
+conda install -c plotly plotly=6.0.0rc0 -y
+conda install -c conda-forge python-kaleido -y
+conda install -c plotly plotly-geo=1.0.0 -y
+
+conda install bokeh -y
+conda install lfortran -c conda-forge -y
+conda install jupytext -c conda-forge -y
+conda install conda-forge::jupyterlab-latex -y
+conda install install xeus-cling -c conda-forge
 ```
 
 ```bash
@@ -259,15 +266,25 @@ playwright install
 ```
 
 ```bash
-pip install jupyterlab-unfold
+pip install 'itkwidgets[all]>=1.0a49'
+pip install tqdm jupyterlab-unfold
 pip install jupyterlab-code-formatter
 pip install black isort
 pip install lckr_jupyterlab_variableinspector
 
 pip install tensorflow[and-cuda]
 
+pip install jupyterlab_theme_solarized_dark
+
+pip install pyqt5
+conda install qtconsole -y
+
+pip install colabcode
 #pip install autots auto-ts darts etna[all] greykite #kats
 #error in kats setupfile. 
+
+jupyter contrib nbextension install --user
+
 ```
 
 ## Setting up the JupyterHub
@@ -341,4 +358,15 @@ sudo chmod -R 755 .
 Reboot the system
 ```bash
 sudo reboot
+```
+
+
+```bash
+wget https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip
+
+mkdir ijava
+mv ijava-1.3.0.zip ./ijava
+unzip ijava-1.3.0.zip 
+python3 install.py --sys-prefix
+
 ```
