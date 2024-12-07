@@ -79,6 +79,39 @@ sudo dpkg -i cudnn-local-repo-ubuntu2204-8.9.7.29_1.0-1_amd64.deb
 sudo cp /var/cudnn-local-repo-ubuntu2204-8.9.7.29/cudnn-local-08A7D361-keyring.gpg /usr/share/keyrings/
 sudo apt update && sudo apt install libcudnn8 libcudnn8-dev -y 
 ```
+
+## Installation of NodeJS and NPM
+
+ 
+    sudo apt-get install -y fuse lvm2 vim plocate curl openssh-server dirmngr gnupg apt-transport-https ca-certificates software-properties-common r-base build-essential libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6 gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils
+  
+    sudo  apt-get  install -y  wget texlive-xetex texlive-full texstudio texmaker texlive-latex-extra pandoc libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev python3-pip openssl libssl-dev build-essential gnupg2 vim bash-completion
+
+    sudo mkdir -p /etc/apt/keyrings
+    curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+    
+    
+    NODE_MAJOR=22
+    echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+    
+    
+    sudo apt-get update
+    sudo apt-get install nodejs -y
+
+
+    node -v   
+    npm -v
+
+## Installing Julia
+
+    wget https://julialang-s3.julialang.org/bin/linux/x64/1.8/julia-1.8.0-linux-x86_64.tar.gz
+    tar -xvzf julia-1.8.0-linux-x86_64.tar.gz
+    sudo cp -r julia-1.8.0 /opt/
+    sudo ln -s /opt/julia-1.8.0/bin/julia /usr/local/bin/julia
+
+    julia  #to enter into julia interface.
+    exit   #to edit from julia
+
 ## Creation and login as a new sudo use`r (Optional)
 
 ```bash
@@ -108,11 +141,18 @@ bash Anaconda3-2024.10-1-Linux-x86_64.sh
 - Press `Spacebar` until you see `license terms`
 - Type `Yes` and press `Enter`
 - Press `Enter`
+- Type `Yes` to install the path variable.
+
+If you face any problem, type the following command:
+```bash
+eval "$(/home/jupyter/anaconda3/bin/conda shell.bash hook)"
+```
+
 
 3. Execute the below provided commands
 ```bash
- source .bashrc
- conda config --set auto_activate_base false 
+source .bashrc
+conda config --set auto_activate_base false 
  ```
 4. Check the Python Version
 ```bash
@@ -120,7 +160,7 @@ python -V
 ```
 5. Tensorflow GPU currently works better if your Python Version is 3.10. Thus, let us create virtual environment with Python 3.10
 ```bash
-conda create --name jupyterHub python=3.10
+conda create --name jupyterHub python=3.12
  ```
 6. Enter into that Virtual Environment
 ```bash
@@ -137,7 +177,7 @@ conda config --add channels microsoft
 
 1. Install tensorflow-gpu
 ```bash
-conda install anaconda::tensorflow-gpu
+conda install anaconda::tensorflow-gpu -y
 ```
 2. Check the correctness of installed TensorFlow-gpu by executing the following commands:
 
@@ -157,6 +197,11 @@ conda install anaconda::tensorflow-gpu
    python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
    ```
          
+   You should be the following output
+
+   ```output
+   [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU'), PhysicalDevice(name='/physical_device:GPU:1', device_type='GPU')]
+   ```
    
 2. Install Keras, PyTorch, and other libraries
 ```bash
@@ -166,28 +211,51 @@ conda install -c rapidsai -c conda-forge -c nvidia dask-cuda cuda-version=12.3 -
 conda install pandas pyarrow -c conda-forge -y
 conda install dask distributed -c conda-forge -y
 conda install conda-forge::s3fs -y
-conda install conda-forge::pytorch-gpu
+conda install conda-forge::pytorch-gpu -y
+conda install cmake zeromq cppzmq OpenSSL xtl nlohmann_json -c conda-forge -y
 ```
 
 ```bash
 python -m pip install torch torch-tensorrt tensorrt pami
+
+pip install matlab_kernels
 ```
 
 ## Installation of JupterHub
 Execute the following commands by staying the `jupyterHub` environment created in the previous steps. 
+
 ```bash
 conda activate jupyterHub
+```
+```bash
 pip install --upgrade pip
 conda install -c conda-forge jupyterlab jupyterhub -y
-conda install notebook -y
-pip install configurable-http-proxy
-pip install ipywidgets
-pip install tensorflow[and-cuda]
-conda install sidecar -y
-conda install playwright -y
+conda install notebook sidecar playwright -y
+
+conda install -n base -c conda-forge jupyterlab_widgets
+conda install conda-forge::configurable-http-proxy -y
+#pip install configurable-http-proxy -y
+
+conda install -c conda-forge ipywidgets -y
+#pip install ipywidgets
+
+pip install jupyter_contrib_nbextensions
+#conda install -c conda-forge jupyter_contrib_nbextensions
+
+conda install -c conda-forge jupyterlab-spellchecker -y
+conda install xeus-python notebook -c conda-forge -y
+```
+
+```bash
 playwright install-deps
 playwright install
-pip install autots auto-ts darts etna[all] greykite kats
+```
+
+```bash
+
+pip install tensorflow[and-cuda]
+
+pip install autots auto-ts darts etna[all] greykite kats -y
 ```
 
 ## Setting up the JupyterHub

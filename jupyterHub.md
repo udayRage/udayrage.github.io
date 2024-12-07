@@ -21,7 +21,7 @@ __Jupyter account need not be a sudo user.__
     curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
     
     
-    NODE_MAJOR=20
+    NODE_MAJOR=22
     echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
     
     
@@ -74,6 +74,7 @@ __Jupyter account need not be a sudo user.__
     pip install --upgrade pip
     conda install -c conda-forge jupyterlab jupyterhub -y
     conda install notebook -y
+    conda install -n base -c conda-forge jupyterlab_widgets
 
     pip install configurable-http-proxy #sudo npm install -g configurable-http-proxy (for backup)
 
