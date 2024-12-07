@@ -177,6 +177,9 @@ conda config --add channels microsoft
 
 1. Install tensorflow-gpu
 ```bash
+conda install anaconda::numpy
+conda install anaconda::scipy
+conda install conda-forge::cupy
 conda install anaconda::tensorflow-gpu -y
 ```
 2. Check the correctness of installed TensorFlow-gpu by executing the following commands:
