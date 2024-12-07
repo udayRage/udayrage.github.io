@@ -235,7 +235,7 @@ pip install --upgrade pip
 conda install -c conda-forge jupyterlab jupyterhub -y
 conda install notebook sidecar playwright -y
 
-conda install -n base -c conda-forge jupyterlab_widgets
+conda install -c conda-forge jupyterlab_widgets
 conda install conda-forge::configurable-http-proxy -y
 #pip install configurable-http-proxy -y
 
@@ -247,6 +247,10 @@ pip install jupyter_contrib_nbextensions
 
 conda install -c conda-forge jupyterlab-spellchecker -y
 conda install xeus-python notebook -c conda-forge -y
+
+conda install conda-forge::jupyterlab-spreadsheet-editor
+conda install -c conda-forge jupyterlab_vim
+conda install -c conda-forge jupyterlab jupyterlab-git
 ```
 
 ```bash
@@ -255,10 +259,15 @@ playwright install
 ```
 
 ```bash
+pip install jupyterlab-unfold
+pip install jupyterlab-code-formatter
+pip install black isort
+pip install lckr_jupyterlab_variableinspector
 
 pip install tensorflow[and-cuda]
 
-pip install autots auto-ts darts etna[all] greykite kats -y
+#pip install autots auto-ts darts etna[all] greykite #kats
+#error in kats setupfile. 
 ```
 
 ## Setting up the JupyterHub
