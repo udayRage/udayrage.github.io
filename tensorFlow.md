@@ -234,10 +234,6 @@ python -m pip install torch torch-tensorrt tensorrt pami
 Execute the following commands by staying the `jupyterHub` environment created in the previous steps. 
 
 ```bash
-conda activate jupyterHub
-```
-
-```bash
 pip install --upgrade pip
 conda install -c conda-forge jupyterlab jupyterhub -y
 conda install notebook sidecar playwright -y
