@@ -177,9 +177,11 @@ conda config --add channels microsoft
 
 1. Install tensorflow-gpu
 ```bash
-conda install anaconda::numpy
-conda install anaconda::scipy
-conda install conda-forge::cupy
+conda install -n base conda-libmamba-solver
+conda config --set solver libmamba
+conda install anaconda::numpy -y
+conda install anaconda::scipy -y
+conda install conda-forge::cupy -y
 conda install anaconda::tensorflow-gpu -y
 ```
 2. Check the correctness of installed TensorFlow-gpu by executing the following commands:
@@ -257,7 +259,10 @@ conda install bokeh -y
 conda install lfortran -c conda-forge -y
 conda install jupytext -c conda-forge -y
 conda install conda-forge::jupyterlab-latex -y
-conda install install xeus-cling -c conda-forge
+conda install install xeus-cling -c conda-forge -y
+conda install -c conda-forge jupyterlab-drawio -y
+conda install -c conda-forge -c plotly jupyter-dash -y
+
 ```
 
 ```bash
@@ -266,7 +271,13 @@ playwright install
 ```
 
 ```bash
+pip install dockerspawner
+pip install aquirdturtle_collapsible_headings
 pip install 'itkwidgets[all]>=1.0a49'
+conda install -c rapidsai-nightly -c conda-forge jupyterlab-nvdashboard
+
+
+
 pip install tqdm jupyterlab-unfold
 pip install jupyterlab-code-formatter
 pip install black isort
