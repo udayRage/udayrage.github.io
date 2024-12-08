@@ -216,6 +216,7 @@ conda install anaconda::tensorflow-gpu -y
    ```
    
 2. Install Keras, PyTorch, and other libraries
+
 ```bash
 conda install conda-forge::keras -y
 conda install -c conda-forge scikit-learn -y
@@ -250,6 +251,9 @@ pip install jupyter_contrib_nbextensions
 
 conda install -c conda-forge jupyterlab-spellchecker -y
 conda install xeus-python notebook -c conda-forge -y
+conda install -c conda-forge -c stason ipyexperiments
+conda install -c conda-forge rise
+
 
 conda install conda-forge::jupyterlab-spreadsheet-editor -y
 conda install -c conda-forge jupyterlab_vim -y 
