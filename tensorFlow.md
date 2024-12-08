@@ -173,11 +173,18 @@ conda config --add channels conda-forge
 conda config --add channels microsoft
 ```
 
+```bash
+conda install -c conda-forge "elyra[all]"
+```
+
+```bash
+jupyter server extension list
+```
 ## Installing and Setting Up TensorFlow GPU
 
 1. Install tensorflow-gpu
 ```bash
-conda install -n base conda-libmamba-solver
+conda install -n base conda-libmamba-solver -y
 conda config --set solver libmamba
 conda install anaconda::numpy -y
 conda install anaconda::scipy -y
@@ -229,6 +236,7 @@ Execute the following commands by staying the `jupyterHub` environment created i
 ```bash
 conda activate jupyterHub
 ```
+
 ```bash
 pip install --upgrade pip
 conda install -c conda-forge jupyterlab jupyterhub -y
