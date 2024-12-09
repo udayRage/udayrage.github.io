@@ -152,9 +152,6 @@ conda install conda-forge::cupy -y
 conda install anaconda::tensorflow-gpu -y
 ```
 
-```bash
-pip install tensorflow[and-cuda]
-```
 
 3. Check the correctness of installed TensorFlow-gpu by executing the following commands:
 
@@ -165,7 +162,13 @@ pip install tensorflow[and-cuda]
    
        [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU'), PhysicalDevice(name='/physical_device:GPU:1', device_type='GPU')]
    
-   If you do not see the above line, it means their may be an installation problem.
+   If you do not see the above line, it means their may be an installation problem. Try to execute the below step
+ 
+    ```bash
+    pip install tensorflow[and-cuda]
+   
+    python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+    ```
 
 ## Installation of JupyterHub, JupyterLab, and Notebook
 
