@@ -52,7 +52,8 @@ ___
 
    __Topics:__ Installation of R, Conda, Setting up an environment, installation of JupyterHub and its add ons. 
 
-    - [GPU server](tensorFlow.md)
+    - [GPU server](GPU.html)
+    - [GPU server (old)](tensorFlow.html)
     - [CPU server](jupyterHub.html)
 
 3. [Installing packages and starting Jupyter Hub](jupyterHubPackage_start.md)

@@ -1,6 +1,4 @@
-# Installing TensorFlow, TensorRT, and Other Machine Learning Libraries
-
-
+# GPU server setup
 
 ## Setting up the Kernal
 
@@ -80,38 +78,6 @@ sudo cp /var/cudnn-local-repo-ubuntu2204-8.9.7.29/cudnn-local-08A7D361-keyring.g
 sudo apt update && sudo apt install libcudnn8 libcudnn8-dev -y 
 ```
 
-## Installation of NodeJS and NPM
-
- 
-    sudo apt-get install -y fuse lvm2 vim plocate curl openssh-server dirmngr gnupg apt-transport-https ca-certificates software-properties-common r-base build-essential libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6 gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils
-  
-    sudo  apt-get  install -y  wget texlive-xetex texlive-full texstudio texmaker texlive-latex-extra pandoc libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev python3-pip openssl libssl-dev build-essential gnupg2 vim bash-completion
-
-    sudo mkdir -p /etc/apt/keyrings
-    curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
-    
-    
-    NODE_MAJOR=22
-    echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
-    
-    
-    sudo apt-get update
-    sudo apt-get install nodejs -y
-
-
-    node -v   
-    npm -v
-
-## Installing Julia
-
-    wget https://julialang-s3.julialang.org/bin/linux/x64/1.8/julia-1.8.0-linux-x86_64.tar.gz
-    tar -xvzf julia-1.8.0-linux-x86_64.tar.gz
-    sudo cp -r julia-1.8.0 /opt/
-    sudo ln -s /opt/julia-1.8.0/bin/julia /usr/local/bin/julia
-
-    julia  #to enter into julia interface.
-    exit   #to edit from julia
-
 ## Creation and login as a new sudo use`r (Optional)
 
 ```bash
@@ -143,11 +109,10 @@ bash Anaconda3-2024.10-1-Linux-x86_64.sh
 - Press `Enter`
 - Type `Yes` to install the path variable.
 
-If you face any problem, type the following command:
-```bash
-eval "$(/home/jupyter/anaconda3/bin/conda shell.bash hook)"
-```
-
+    If you face any problem, type the following command:
+    ```bash
+    eval "$(/home/jupyter/anaconda3/bin/conda shell.bash hook)"
+    ```
 
 3. Execute the below provided commands
 ```bash
@@ -160,29 +125,24 @@ python -V
 ```
 5. Tensorflow GPU currently works better if your Python Version is 3.10. Thus, let us create virtual environment with Python 3.10
 ```bash
-conda create --name jupyterHub python=3.10
+conda create --name jupyterHub python=3.10 -y
  ```
 6. Enter into that Virtual Environment
 ```bash
 conda activate jupyterHub
 ```
-7. Execute the following commands
+
+## Installing Tensorflow, TensorRT, and other import DL-plugins
+
+1. Add the necessary channels
+
 ```bash
 pip install --upgrade pip
 conda config --add channels conda-forge
 conda config --add channels microsoft
 ```
 
-```bash
-conda install -c conda-forge "elyra[all]"
-```
-
-```bash
-jupyter server extension list
-```
-## Installing and Setting Up TensorFlow GPU
-
-1. Install tensorflow-gpu
+2. Install tensorflow-gpu
 ```bash
 conda install -n base conda-libmamba-solver -y
 conda config --set solver libmamba
@@ -191,89 +151,34 @@ conda install anaconda::scipy -y
 conda install conda-forge::cupy -y
 conda install anaconda::tensorflow-gpu -y
 ```
-2. Check the correctness of installed TensorFlow-gpu by executing the following commands:
 
-   - Approach-1
-
-   ```bash
-   python3
-   ```
-   ```PYTHON
-   import tensorflow as tf
-   ``` 
-   __Note:__ If you see any error, such as core dump, then there is a problem.
-
-   - Approach-2
-   
-   ```bash
-   python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
-   ```
-         
-   You should be the following output
-
-   ```output
-   [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU'), PhysicalDevice(name='/physical_device:GPU:1', device_type='GPU')]
-   ```
-   
-2. Install Keras, PyTorch, and other libraries
-
-```pycon
+```bash
 pip install tensorflow[and-cuda]
 ```
 
-```bash
-conda install conda-forge::keras -y
-conda install -c conda-forge scikit-learn -y
-conda install -c rapidsai -c conda-forge -c nvidia dask-cuda cuda-version=12.3 -y
-conda install pandas pyarrow -c conda-forge -y
-conda install dask distributed -c conda-forge -y
-conda install conda-forge::s3fs -y
-conda install conda-forge::pytorch-gpu -y
-conda install cmake zeromq cppzmq OpenSSL xtl nlohmann_json -c conda-forge -y
+3. Check the correctness of installed TensorFlow-gpu by executing the following commands:
 
-python -m pip install torch torch-tensorrt tensorrt pami
-#pip install matlab_kernels
-```
+   ```bash
+   python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+   ```
+   Output must contain the following last line
+   
+       [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU'), PhysicalDevice(name='/physical_device:GPU:1', device_type='GPU')]
+   
+   If you do not see the above line, it means their may be an installation problem.
 
-## Installation of JupterHub
-Execute the following commands by staying the `jupyterHub` environment created in the previous steps. 
+## Installation of JupyterHub, JupyterLab, and Notebook
 
 ```bash
 pip install --upgrade pip
 conda install -c conda-forge jupyterlab jupyterhub -y
-conda install notebook sidecar playwright -y
+conda install notebook -y
+```
 
-conda install -c conda-forge jupyterlab_widgets
-conda install conda-forge::configurable-http-proxy -y
-#pip install configurable-http-proxy -y
+## Installing important dependencies, kernels, and widgets of JupyterHub
 
-conda install -c conda-forge ipywidgets -y
-#pip install ipywidgets
-
-pip install jupyter_contrib_nbextensions
-#conda install -c conda-forge jupyter_contrib_nbextensions
-
-conda install -c conda-forge jupyterlab-spellchecker -y
-conda install xeus-python notebook -c conda-forge -y
-conda install -c conda-forge -c stason ipyexperiments
-conda install -c conda-forge rise
-
-
-conda install conda-forge::jupyterlab-spreadsheet-editor -y
-conda install -c conda-forge jupyterlab_vim -y 
-conda install -c conda-forge jupyterlab jupyterlab-git -y
-conda install jupyter anywidget -y
-conda install -c plotly plotly=6.0.0rc0 -y
-conda install -c conda-forge python-kaleido -y
-conda install -c plotly plotly-geo=1.0.0 -y
-
-conda install bokeh -y
-conda install lfortran -c conda-forge -y
-conda install jupytext -c conda-forge -y
-conda install conda-forge::jupyterlab-latex -y
-conda install install xeus-cling -c conda-forge -y
-conda install -c conda-forge jupyterlab-drawio -y
-conda install -c conda-forge -c plotly jupyter-dash -y
+```bash
+conda install sidecar playwright -y
 
 ```
 
@@ -283,19 +188,44 @@ playwright install
 ```
 
 ```bash
-pip install dockerspawner
-pip install aquirdturtle_collapsible_headings
-pip install 'itkwidgets[all]>=1.0a49'
-conda install -c rapidsai-nightly -c conda-forge jupyterlab-nvdashboard
+conda install -c conda-forge jupyterlab_widgets -y
+conda install conda-forge::configurable-http-proxy -y
+conda install -c rapidsai-nightly -c conda-forge jupyterlab-nvdashboard -y
+conda install -c conda-forge ipywidgets -y
+conda install -c conda-forge jupyterlab-spellchecker -y
+conda install conda-forge::jupyterlab-spreadsheet-editor -y
+conda install -c conda-forge jupyterlab jupyterlab-git -y
+
+conda install -c conda-forge python-kaleido -y
+conda install conda-forge::jupyterlab-latex -y
+conda install -c conda-forge jupyterlab-drawio -y
+
+conda install bokeh -y
+conda install -c plotly plotly=6.0.0rc0 -y
+conda install -c plotly plotly-geo=1.0.0 -y
+
+conda install -c conda-forge jupyter_contrib_nbextensions
+```
+```bash
+sudo apt install -y qtcreator qtbase5-dev qt5-qmake cmake
+```
+```bash
+conda install qtconsole -y
+```
+
+```bash
+pip install pyqt5
+```
 
 
+```bash 
+pip install aquirdturtle_collapsible_headings 
 
 pip install tqdm jupyterlab-unfold
-pip install jupyterlab-code-formatter
+pip install jupyterlab-code-formatter 
 pip install black isort
 pip install lckr_jupyterlab_variableinspector
-
-pip install tensorflow[and-cuda]
+ 
 
 pip install jupyterlab_theme_solarized_dark
 
@@ -303,12 +233,15 @@ pip install pyqt5
 conda install qtconsole -y
 
 pip install colabcode
+pip install autots auto-ts darts
+
+
 #pip install autots auto-ts darts etna[all] greykite #kats
 #error in kats setupfile. 
 
 jupyter contrib nbextension install --user
-
 ```
+
 
 ## Setting up the JupyterHub
 Come to the home directory.
@@ -338,6 +271,9 @@ c.JupyterHub.hub_bind_url = 'http://127.0.0.1:8085'
 c.JupyterHub.hub_port = 8082
 c.ConfigurableHTTPProxy.command = '/home/jupyter/anaconda3/envs/jupyterHub/bin/configurable-http-proxy'  #'/usr/local/bin/configurable-http-proxy'
 c.Spawner.cmd=["/home/jupyter/anaconda3/envs/jupyterHub/bin/jupyter-labhub"]
+
+#c.JupyterHub.ssl_key = '/path/to/my.key'
+#c.JupyterHub.ssl_cert = '/path/to/my.cert'
 ```
 __Note:__ Change the _ipaddress_ of the variable `c.JupyterHub.bind_url` 
 
@@ -383,13 +319,9 @@ Reboot the system
 sudo reboot
 ```
 
+## Setting up the cluster
 
 ```bash
-wget https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip
-
-mkdir ijava
-mv ijava-1.3.0.zip ./ijava
-unzip ijava-1.3.0.zip 
-python3 install.py --sys-prefix
-
+pip install ipyparallel
+ipcluster start
 ```
