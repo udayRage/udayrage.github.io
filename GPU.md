@@ -41,6 +41,24 @@ sudo lshw -C display
 ```
 Your graphic cards should be shown in the output generated.
 
+
+```bash
+sudo vi /etc/apt/sources.list.d/ubuntu.sources
+```
+
+Paste the text
+
+```bash
+Types: deb
+URIs: http://old-releases.ubuntu.com/ubuntu/
+Suites: lunar
+Components: universe
+Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+```
+
+```pycon
+sudo apt update
+```
 ## Installing Nvidia CUDA libraries
 
 1. Visit the following URL: [https://developer.nvidia.com/cuda-12-2-0-download-archive](https://developer.nvidia.com/cuda-12-2-0-download-archive)
@@ -182,7 +200,6 @@ conda install notebook -y
 
 ```bash
 conda install sidecar playwright -y
-
 ```
 
 ```bash
@@ -224,7 +241,7 @@ pip install pyqt5
 ```bash 
 pip install aquirdturtle_collapsible_headings 
 
-pip install tqdm jupyterlab-unfold
+pip install tqdm 
 pip install jupyterlab-code-formatter 
 pip install black isort
 pip install lckr_jupyterlab_variableinspector
