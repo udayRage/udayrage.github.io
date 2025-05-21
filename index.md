@@ -32,10 +32,8 @@ ___
 4. Jupyter Notebook
 
    - [GUI](https://docs.sevenbridges.com/docs/editor-quick-reference)
-   - [Shortcuts](https://udayrage.github.io/jupyterLabCommands.html)
-   - [Basic Jupyter tutorial](https://towardsdatascience.com/a-beginners-tutorial-to-jupyter-notebooks-1b2f8705888a)
-   - [Interactive widgets](https://towardsdatascience.com/bring-your-jupyter-notebook-to-life-with-interactive-widgets-bc12e03f0916)
-   - [Cheat sheet**](https://www.edureka.co/blog/cheatsheets/jupyter-notebook-cheat-sheet)
+   - [Jupyter Hub Interface](jupyterHubInterface_1.pdf)
+   - [jupyter Notebook Interface](jupyterNotebookInterface_2.pdf) 
    - [Practise](markdownPractise.pdf)
    
 5. [Google Colab](https://www.tutorialspoint.com/google_colab/index.htm)
